@@ -19,4 +19,4 @@ Type `php -S localhost:8000` to start.
 Setup WordPress database by going to `localhost:8000` on your browser. Follow the instructions carefully.
 
 #### License
-This page is published under [**Creative Commons**](/LICENSE)
+This page is published under [**GNU General Public License**](/LICENSE)
