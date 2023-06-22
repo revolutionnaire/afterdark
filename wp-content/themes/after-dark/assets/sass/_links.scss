@@ -1,0 +1,11 @@
+// Define all anchor tag related styles here
+
+a {
+  color: $color-action;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: $border-thickness solid $color-action;
+    @include animation($link-animation);
+  }
+}

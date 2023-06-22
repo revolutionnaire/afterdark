@@ -1,0 +1,40 @@
+// Define all variables for the theme here
+
+// Breakpoints
+$breakpoints: (
+  xs: 320px, // iPhone 5s
+  sm: 768px, // iPad Mini 8.3 portrait mode
+  md: 820px, // iPad Air portrait mode
+  lg: 1024px, // iPad Mini 8.3 landscape mode
+  xl: 1440px // Desktops
+);
+
+// Typography
+$default-font: 'Inter', sans-serif;
+$default-bold-weight: 700;
+$default-heading-size: 24px;
+$default-body-size: 16px;
+$default-footnote-size: 12px;
+
+// Color
+$color-foreground: #000;
+$color-secondary: #E6E6E6;
+$color-action: #BE3455;
+$color-background: #FFF;
+
+// Whitespaces
+$space-vertical: $default-body-size;
+$space-horizontal: 12px;
+
+// Border
+$border-thickness: 1px;
+$border-radius: 6px;
+
+// Containers
+$wrapper-width: 1120px;
+
+// Navigation
+$navigation-height: 24px;
+
+// Animation
+$link-animation: 0.25s 0 alternate fade-in-border;

@@ -1,0 +1,22 @@
+// Define all utility classes here
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.text-emphasis,
+.text-data {
+  font-weight: $default-bold-weight;
+}

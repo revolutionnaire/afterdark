@@ -1,0 +1,33 @@
+/*!
+ * Theme Name: After Dark
+ * Author: Samuel Bacay
+ * Author URI: https://mrbacay.com/
+ * Description: The site theme for Around After Dark
+ * Version: 1.0 (Sunset)
+ * License: GNU General Public License v3 or later
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * */
+
+// Include Compass submodules
+@import 'compass/reset';
+@import 'compass/css3/animation';
+@import 'compass/css3/flexbox';
+
+// Mixins
+@import 'respond-above';
+
+// Style variables
+@import 'variables';
+
+// Animations
+@import 'animations';
+
+// Helpers
+@import 'helpers';
+
+// Typographic styles
+@import 'typography';
+@import 'links';
+
+// Containers
+@import 'containers';

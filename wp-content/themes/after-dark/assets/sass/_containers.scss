@@ -1,0 +1,18 @@
+// Define all styles related to containers here
+
+main {
+  padding: $space-vertical 0;
+  margin-top: $navigation-height + 2 * $space-horizontal;
+}
+
+.wrapper {
+  margin-right: $space-horizontal;
+  margin-left: $space-horizontal;
+
+  @include respond-above(lg) {
+    width: 100%;
+    max-width: $wrapper-width;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

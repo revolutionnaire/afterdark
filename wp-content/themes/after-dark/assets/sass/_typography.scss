@@ -1,0 +1,40 @@
+// Define all typography related styles here
+
+body {
+  font-family: $default-font;
+  font-size: $default-body-size;
+  text-rendering: optimizeLegibility;
+}
+
+h1  {
+  font-size:  $default-heading-size;
+  margin-bottom: $space-vertical;
+}
+
+h2  {
+  font-size:  $default-heading-size;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: $default-body-size;
+  font-weight: $default-bold-weight;
+}
+
+b,
+strong {
+  font-weight: $default-bold-weight;
+}
+
+.single-content h2,
+.page-content h2 {
+  font-size: (6 - ($default-body-size % 6)) % 6 + $default-body-size;
+  font-weight: $default-bold-weight;
+}
+
+.single-content ul,
+.page-content ul {
+  list-style: square;
+}

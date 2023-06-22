@@ -1,0 +1,11 @@
+// Define all animation properties here
+
+// Animation for hyperlinks
+@keyframes fade-in-border {
+  0% {
+    border-bottom-color: transparent;
+  }
+  100% {
+    border-bottom-color: $color-action;
+  }
+}
