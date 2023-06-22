@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+# Hello! This is where you manage the theme's gem dependencies. When
+# you want to use a different version, change it below, save the file
+# and run `bundle install`.
+gem 'sass'
+gem 'compass'
