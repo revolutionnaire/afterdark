@@ -7,6 +7,9 @@ function aftedark_add_styles_and_scripts() {
   wp_enqueue_script('afterdark-navigation', get_template_directory_uri() . '/assets/js/navigation.js');
 }
 
+// Support featured images for posts
+add_theme_support('post-thumbnails');
+
 // Add a custom class to manipulate class names in wp_nav_menu to use names instead of numbers
 class After_Dark_Walker_Nav_Menu extends Walker_Nav_Menu {
   // Override the start_el method
@@ -66,3 +69,11 @@ function afterdark_add_main_navigation() {
 
 // Hook to the init action hook, run the header menu function
 add_action( 'init', 'afterdark_add_main_navigation' );
+
+// Register the footer's navigation menu
+function afterdark_add_footer_navigation() {
+  register_nav_menu('footer-menu',__( 'Footer' ));
+}
+
+// Hook to the init action hook, run the header menu function
+add_action( 'init', 'afterdark_add_footer_navigation' );

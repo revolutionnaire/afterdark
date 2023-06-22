@@ -1,0 +1,38 @@
+// Define all styles for the footer here
+
+footer {
+  font-size: $default-footnote-size;
+  margin-top: $space-vertical;
+  margin-bottom: $space-vertical;
+
+  > .wrapper {
+    padding-top: $space-vertical;
+    border-top: $border-thickness solid $color-secondary;
+
+    > .nav {
+      @include flexbox((
+        display: inline-flex,
+        flex-direction: row
+      ));
+
+      > .menu-item {
+        padding-right: $space-horizontal / 2;
+        padding-left: $space-horizontal / 2;
+        border-right: 1px solid $color-foreground;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+          border-right: 0;
+        }
+      }
+    }
+
+    > #colophon {
+      display: inline-block;
+    }
+  }
+}
