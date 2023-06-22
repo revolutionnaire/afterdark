@@ -38,3 +38,15 @@ $navigation-height: 24px;
 
 // Animation
 $link-animation: 0.25s 0 alternate fade-in-border;
+$navigation-animation: height 0.5s ease-in;
+$navigation-sticky-animation: position 0.25s ease-in;
+$navigation-logo-animation: fill 0.25s ease-in;
+$navigation-search-animation: opacity 0.25s ease-in;
+$navigation-search-sibling-animation: opacity 0.2s ease-out;
+$navigation-menu-item-animation: opacity 0.25s ease-in;
+$navigation-hamburger-animation: transform 0.25s ease-in;
+$navigation-hamburger-middle-bar-animation: opacity 0.2s ease-in;
+
+// WordPress Admin bar
+$wordpress-adminbar-height-mobile: 46px;
+$wordpress-adminbar-height-desktop: 32px;
