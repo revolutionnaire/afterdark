@@ -1,0 +1,72 @@
+// Define all styles related to the content card component
+
+// Use Flexbox on non-featured contents
+.content-card-wrapper {
+  margin-right: -$space-horizontal;
+  margin-left: -$space-horizontal;
+
+  @include respond-above(lg) {
+    margin-right: 0;
+    margin-left: 0;
+    @include flexbox((
+      display: flex,
+      flex-direction: row,
+      flex-wrap: wrap
+    ));
+  }
+
+  > .content-card {
+    opacity: $cards-inactive-opacity;
+    transition: $content-card-image-animation;
+
+    &:hover {
+      opacity: 1;
+      transition: $content-card-image-animation;
+    }
+
+    @include respond-above(lg) {
+      @include flex-basis(calc(50% - (#{$space-horizontal} * 0.5)));
+
+      // Set the gutter between content cards
+      &:nth-child(odd) {
+        margin-right: $space-horizontal * 0.5;
+      }
+
+      &:nth-child(even) {
+        margin-left: $space-horizontal * 0.5;
+      }
+    }
+  }
+}
+
+.content-card {
+  margin-bottom: $space-vertical * 2;
+
+  @include respond-above(lg) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > header {
+    > .featured-image-container {
+      width: 100%;
+      height: 220px;
+      border-bottom: 0;
+      display: block;
+      position: relative;
+      overflow: hidden;
+
+      @include respond-above(sm) {
+        height: 320px;
+      }
+    }
+
+    .wrapper {
+      display: block;
+
+      > h2 {
+        margin-top: $space-vertical;
+      }
+    }
+  }
+}

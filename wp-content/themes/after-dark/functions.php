@@ -7,6 +7,9 @@ function aftedark_add_styles_and_scripts() {
   wp_enqueue_script('afterdark-navigation', get_template_directory_uri() . '/assets/js/navigation.js');
 }
 
+// Hook to the scripts and style enqueueing
+add_action('wp_enqueue_scripts', 'aftedark_add_styles_and_scripts');
+
 // Support featured images for posts
 add_theme_support('post-thumbnails');
 
@@ -58,9 +61,6 @@ function afterdark_nav_menu_walker($args) {
 
 // Customize the arguments passed to wp_nav_menu
 add_filter('wp_nav_menu_args', 'afterdark_nav_menu_walker');
-
-// Hook to the scripts and style enqueueing
-add_action('wp_enqueue_scripts', 'aftedark_add_styles_and_scripts');
 
 // Register the header's navigation menu
 function afterdark_add_main_navigation() {

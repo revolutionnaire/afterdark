@@ -36,6 +36,9 @@ $wrapper-width: 1120px;
 // Navigation
 $navigation-height: 24px;
 
+// Content Cards
+$cards-inactive-opacity: 0.9;
+
 // Animation
 $link-animation: 0.25s 0 alternate fade-in-border;
 $navigation-animation: height 0.5s ease-in;
@@ -46,6 +49,7 @@ $navigation-search-sibling-animation: opacity 0.2s ease-out;
 $navigation-menu-item-animation: opacity 0.25s ease-in;
 $navigation-hamburger-animation: transform 0.25s ease-in;
 $navigation-hamburger-middle-bar-animation: opacity 0.2s ease-in;
+$content-card-image-animation: opacity 0.25s ease-in;
 
 // WordPress Admin bar
 $wordpress-adminbar-height-mobile: 46px;
