@@ -13,6 +13,7 @@ h1  {
 
 h2  {
   font-size:  $default-heading-size;
+  margin-bottom: $space-vertical;
 }
 
 h3,
@@ -21,6 +22,13 @@ h5,
 h6 {
   font-size: $default-body-size;
   font-weight: $default-bold-weight;
+  margin-bottom: $space-vertical;
+}
+
+p,
+ul {
+  font-size: $default-body-size;
+  margin-bottom: $space-vertical;
 }
 
 b,

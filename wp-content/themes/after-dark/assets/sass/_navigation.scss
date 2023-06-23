@@ -201,6 +201,10 @@
         &:first-child {
           padding-top: $space-vertical;
         }
+
+        > a > h2  {
+          margin-bottom: 0;
+        }
       }
     }
 
