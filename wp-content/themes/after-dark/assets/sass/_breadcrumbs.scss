@@ -1,0 +1,29 @@
+// Define styles for breadcrumbs here
+
+.breadcrumbs {
+  margin-bottom: 0;
+  @include flexbox((
+    display: flex,
+    flex-direction: row,
+  ));
+
+  > .breadcrumbs-ancestor-category,
+  > .breadcrumbs-child-category {
+    margin-right: $space-horizontal * 0.5;
+    margin-left: $space-horizontal * 0.5;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  > .breadcrumbs-ancestor-category::after {
+    content: '\203A';
+    position: relative;
+    left: $space-horizontal * 0.5;
+  }
+}

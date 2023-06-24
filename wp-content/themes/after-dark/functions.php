@@ -71,6 +71,49 @@ function afterdark_add_main_navigation() {
 // Hook to the init action hook, run the header menu function
 add_action( 'init', 'afterdark_add_main_navigation' );
 
+// Add category breadcrumbs after the content
+function afterdark_categories_as_breadcrumbs( $id, $wrapper = false ) {
+  // Check if ID is post ID or category ID
+  if ( !empty( get_the_category( $id ) ) ) :
+    $categories = get_the_category( $id );
+  else:
+    $categories = array( get_category( $id ) );
+  endif;
+
+  // Check if there are any categories
+  if ( ! empty( $categories ) ) :
+    echo '<nav id="breadcrumbs">';
+    if ( $wrapper === true) :
+      echo '<div class="wrapper">';
+    endif;
+    echo '<ul class="breadcrumbs">';
+    foreach ( $categories as $category ) :
+      $ancestors = get_ancestors( $category->term_id, 'category' );
+      $ancestors = array_reverse( $ancestors );
+
+      // Output the ancestor categories as roots
+      foreach ( $ancestors as $ancestor ) :
+        $taxonomy = get_category( $ancestor );
+        // Check if the parent category has a page that displays child categories
+        $link = ( ! empty( get_permalink( get_page_by_path( $taxonomy->slug ) ) ) ) ? get_permalink( get_page_by_path( $taxonomy->slug ) ) : get_category_link( $taxonomy->term_id );
+        echo '<li class="breadcrumbs-ancestor-category"><a href="' . esc_url( $link ) . '">' . esc_html( $taxonomy->name ) . '</a></li>';
+      endforeach;
+
+      // Output the current category as a link if it's a child
+      if ( ! empty( $ancestors )  && is_single () ) :
+        echo '<li class="breadcrumbs-child-category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></li>';
+      elseif ( ! empty( $ancestors ) ) :
+        echo '<li class="breadcrumbs-child-category">' . esc_html( $category->name ) . '</a></li>';
+      endif;
+    endforeach;
+    echo '</ul>';
+    if ( $wrapper === true) :
+      echo '</div>';
+    endif;
+    echo '</nav>';
+  endif;
+}
+
 // Register two sidebars one for posts and the other for guides
 function afterdark_add_widget_support() {
   // Widget area for related guides

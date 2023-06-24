@@ -34,6 +34,10 @@
 
 // Components
 @import 'navigation';
+@import 'breadcrumbs';
 @import 'content-cards';
 @import 'sidebar';
 @import 'footer';
+
+// Templates
+@import 'template-index';

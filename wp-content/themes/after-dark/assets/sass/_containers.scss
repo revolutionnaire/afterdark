@@ -2,7 +2,6 @@
 
 main {
   padding: $space-vertical 0;
-  margin-top: $navigation-height + 2 * $space-horizontal;
 }
 
 .wrapper {
@@ -15,4 +14,8 @@ main {
     margin-right: auto;
     margin-left: auto;
   }
+}
+
+body:not(.category) > main {
+  margin-top: $navigation-height + 2 * $space-horizontal;
 }
