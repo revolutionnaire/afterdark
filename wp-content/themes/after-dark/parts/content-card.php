@@ -1,5 +1,5 @@
 <?php $post = $args['post'];  if ( array_key_exists( 'featured-article', $args ) ) : $featured_article = $args['featured-article']; else : $featured_article = false; endif; ?>
-<article class="content-card content-card-<?php the_ID(); ?><?php if ( $featured_article == true ) : echo ' content-card-featured'; endif; ?>">
+<article class="content-card content-card-<?php the_ID( $post->ID ); ?><?php if ( $featured_article == true ) : echo ' content-card-featured'; endif; ?>">
   <header>
     <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
     <a href="<?php echo get_permalink( $post->ID ); ?>" class="featured-image-container" title="<?php echo esc_attr( get_the_title( $post->ID ) ); ?>">
