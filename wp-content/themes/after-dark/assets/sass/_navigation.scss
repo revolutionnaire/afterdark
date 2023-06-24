@@ -309,12 +309,10 @@
 // Move the navigation below the WordPress navigation bar when user is logged in
 .logged-in > #navigation {
   top: $wordpress-adminbar-height-mobile;
-  transform: $navigation-sticky-animation;
 
   // Move to the top of the viewport because the WordPress admin bar is scrolled out
   &.scrolling {
     top: 0;
-    transform: $navigation-sticky-animation;
   }
 
   @include respond-above(md) {
