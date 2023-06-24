@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php if ( is_category() ) : afterdark_categories_as_breadcrumbs( $cat, true ); endif; ?>
+<?php if ( is_category() ) : ad_categories_as_breadcrumbs( $cat, true ); endif; ?>
 <main id="content" class="wrapper">
   <section class="content-card-wrapper">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

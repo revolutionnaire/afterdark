@@ -7,7 +7,7 @@ $args = array (
   'container' => 'nav',
   'link_before' => '<h2>',
   'link_after' => '</h2>',
-  'walker' => new After_Dark_Walker_Nav_Menu()
+  'walker' => new AD_Walker_Nav_Menu()
 );
 ?>
 <!DOCTYPE html>

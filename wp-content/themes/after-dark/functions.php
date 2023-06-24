@@ -1,6 +1,6 @@
 <?php
 // Add default styles and necessary JavaScript for all the pages
-function aftedark_add_styles_and_scripts() {
+function ad_add_styles_and_scripts() {
   // Use Inter from Google Fonts
   wp_enqueue_style( 'google-fonts', "https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" );
 
@@ -9,13 +9,13 @@ function aftedark_add_styles_and_scripts() {
 }
 
 // Hook to the scripts and style enqueueing
-add_action( 'wp_enqueue_scripts', 'aftedark_add_styles_and_scripts' );
+add_action( 'wp_enqueue_scripts', 'ad_add_styles_and_scripts' );
 
 // Support featured images for posts
 add_theme_support( 'post-thumbnails' );
 
-// Add a custom class to manipulate class names in wp_nav_menu to use names instead of numbers
-class After_Dark_Walker_Nav_Menu extends Walker_Nav_Menu {
+// Add a custom class to manipulate class names in wp_nav_menu to use slugs instead of numbers
+class AD_Walker_Nav_Menu extends Walker_Nav_Menu {
   // Override the start_el method
   public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     $item_classes = $item->classes;
@@ -54,26 +54,26 @@ class After_Dark_Walker_Nav_Menu extends Walker_Nav_Menu {
 }
 
 // Register the custom walker for wp_nav_menu
-function afterdark_nav_menu_walker( $args ) {
+function ad_nav_menu_walker( $args ) {
   return array_merge( $args, array(
-  'walker' => new After_Dark_Walker_Nav_Menu(),
+  'walker' => new AD_Walker_Nav_Menu(),
   ));
 }
 
 // Customize the arguments passed to wp_nav_menu
-add_filter( 'wp_nav_menu_args', 'afterdark_nav_menu_walker' );
+add_filter( 'wp_nav_menu_args', 'ad_nav_menu_walker' );
 
 // Register the header's navigation menu
-function afterdark_add_main_navigation() {
+function ad_add_main_navigation() {
   register_nav_menu( 'main-menu',__( 'Main' ) );
 }
 
 // Hook to the init action hook, run the header menu function
-add_action( 'init', 'afterdark_add_main_navigation' );
+add_action( 'init', 'ad_add_main_navigation' );
 
-// Add category breadcrumbs after the content
-function afterdark_categories_as_breadcrumbs( $id, $wrapper = false ) {
-  // Check if ID is post ID or category ID
+// Helper function that adds  categories as  breadcrumbs
+function ad_categories_as_breadcrumbs( $id, $wrapper = false ) {
+  // Check if ID is a post ID or a category ID
   if ( !empty( get_the_category( $id ) ) ) :
     $categories = get_the_category( $id );
   else:
@@ -115,7 +115,7 @@ function afterdark_categories_as_breadcrumbs( $id, $wrapper = false ) {
 }
 
 // Register two sidebars one for posts and the other for guides
-function afterdark_add_widget_support() {
+function ad_add_widget_support() {
   // Widget area for related guides
   register_sidebar( array(
     'name' => __( 'Guides Sidebar', 'custom-theme' ),
@@ -140,12 +140,12 @@ function afterdark_add_widget_support() {
 }
 
 // Hook the widget initiation and run our function
-add_action( 'widgets_init', 'afterdark_add_widget_support' );
+add_action( 'widgets_init', 'ad_add_widget_support' );
 
 // Register the footer's navigation menu
-function afterdark_add_footer_navigation() {
+function ad_add_footer_navigation() {
   register_nav_menu( 'footer-menu',__( 'Footer' ) );
 }
 
 // Hook to the init action hook, run the header menu function
-add_action( 'init', 'afterdark_add_footer_navigation' );
+add_action( 'init', 'ad_add_footer_navigation' );
