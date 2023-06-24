@@ -254,26 +254,12 @@
     > .input-text[type="search" i] {
       width: 100%;
       font-size: $default-heading-size;
-      padding-top: 0;
-      padding-bottom: 0;
-      border: none;
       position: relative;
       top: -3px;
       transition: $navigation-search-animation;
 
       &::placeholder {
-        color: $color-secondary;
         transition: $navigation-search-animation;
-      }
-
-      &:active,
-      &:focus-visible {
-        outline: none;
-
-        &::placeholder {
-          color: $color-secondary;
-          transition: $navigation-search-animation;
-        }
       }
     }
 

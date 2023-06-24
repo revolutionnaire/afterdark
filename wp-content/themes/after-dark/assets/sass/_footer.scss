@@ -8,27 +8,8 @@ footer {
     padding-top: $space-vertical;
     border-top: $border-thickness solid $color-secondary;
 
-    > .nav {
-      @include flexbox((
-        display: inline-flex,
-        flex-direction: row
-      ));
-
-      > .menu-item {
-        font-size: $default-footnote-size;
-        padding-right: $space-horizontal / 2;
-        padding-left: $space-horizontal / 2;
-        border-right: 1px solid $color-foreground;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-          border-right: 0;
-        }
-      }
+    .nav > .menu-item {
+      font-size: $default-footnote-size;
     }
 
     > #colophon {

@@ -28,3 +28,46 @@
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
+
+.list-links {
+@include flexbox((
+  display: inline-flex,
+  flex-direction: row
+));
+
+  > li {
+    padding-right: $space-horizontal / 2;
+    padding-left: $space-horizontal / 2;
+    border-right: 1px solid $color-foreground;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+}
+
+.input-text {
+  font-size: $default-body-size;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+
+  &::placeholder {
+    color: $color-secondary;
+  }
+
+  &:active,
+  &:focus-visible {
+    outline: none;
+
+    &::placeholder {
+      color: $color-secondary;
+      transition: $navigation-search-animation;
+    }
+  }
+}

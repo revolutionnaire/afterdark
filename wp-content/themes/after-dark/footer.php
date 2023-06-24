@@ -4,7 +4,7 @@ $args = array (
   'theme_location' => 'footer-menu',
   'menu_class' => 'nav',
   'container' => null,
-  'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
+  'items_wrap' => '<ul id="%1$s" class="%2$s list-links">%3$s</ul>'
 );
 ?>
     <footer>

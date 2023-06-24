@@ -36,6 +36,10 @@ strong {
   font-weight: $default-bold-weight;
 }
 
+small {
+  font-size: $default-footnote-size;
+}
+
 .single-content h2,
 .page-content h2 {
   font-size: (6 - ($default-body-size % 6)) % 6 + $default-body-size;
