@@ -36,6 +36,15 @@
       font-size: $default-heading-size;
       font-weight: $default-bold-weight;
     }
+
+    > center {
+      margin-top: $space-vertical * 0.5;
+      margin-bottom: $space-vertical * 0.5;
+
+      p:first-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   > .widget li {

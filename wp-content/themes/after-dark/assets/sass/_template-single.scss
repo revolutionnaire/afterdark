@@ -1,0 +1,53 @@
+// Define all styles for posts and other custom posts here
+
+.single > main {
+  padding-top: 0;
+
+  > section > article {
+
+    > .wrapper {
+      @include respond-above(sm) {
+        @include flexbox((
+          display: flex,
+          flex-direction: row,
+          flex-wrap: wrap
+        ));
+      }
+
+      > #content {
+        margin-bottom: $space-vertical;
+        @include flex-basis(calc(66.67% - (#{$space-horizontal} * 0.5)));
+
+        @include respond-above(sm) {
+          margin-right: $space-horizontal * 0.5;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.single-guide > main > section > article > .wrapper > #content {
+  > .location-wifi,
+  > .location-price {
+    margin-bottom: 0;
+  }
+
+  > iframe {
+    width: 100%;
+    height: 240px;
+    margin-bottom: $space-vertical * 2;
+    display: block;
+
+    @include respond-above(sm) {
+      width: 400px;
+      height: 300px;
+    }
+  }
+
+  .social-media-links > li:first-child {
+    padding-right: 0;
+    border-right: 0;
+
+  }
+}
