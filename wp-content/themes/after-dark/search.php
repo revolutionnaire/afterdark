@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <form id="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="search-bar">
   <div class="wrapper">
-    <input type="search" class="input-text" name="s" placeholder="Search for a location" autocomplete="off">
+    <input type="search" class="input-text" name="s" placeholder="<?php echo ( ! empty( get_search_query() ) ? get_search_query() : 'Search for a location' ); ?>" autocomplete="off">
   </div>
 </form>
 <main id="content" class="wrapper">

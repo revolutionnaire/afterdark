@@ -50,7 +50,7 @@ $args = array (
           <?php endif; ?>
         </header>
         <form id="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-          <input type="search" class="input-text" name="s" placeholder="Search for a neighborhood or city" autocomplete="off">
+          <input type="search" class="input-text" name="s" placeholder="<?php echo ( ! empty( get_search_query() ) ? get_search_query() : 'Search for a neighborhood or city' ); ?>" autocomplete="off">
         </form>
         <?php if ( has_nav_menu( 'main-menu' ) ) : wp_nav_menu( $args ); endif; ?>
         <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
