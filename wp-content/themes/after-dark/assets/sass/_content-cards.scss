@@ -72,13 +72,16 @@
   }
 }
 
-#sidebar .content-card {
-  > header > center {
-    margin-top: $space-vertical * 0.5;
-    margin-bottom: $space-vertical * 0.5;
+.content-card-featured > header > .featured-image-container {
+  height: 220px;
+  margin-right: 0;
+  margin-left: 0;
 
-    p:first-child {
-      margin-bottom: 0;
-    }
+  @include respond-above(sm) {
+    height: 320px;
+  }
+
+  @include respond-above(lg) {
+    height: 473px;
   }
 }
