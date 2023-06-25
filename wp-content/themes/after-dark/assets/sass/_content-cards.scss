@@ -73,11 +73,16 @@
     }
 
     .wrapper {
+      text-align: left;
       display: block;
+
+      @include respond-above(sm) {
+        text-align: center;
+      }
 
       > h2 {
         margin-top: $space-vertical;
-        margin-bottom: 0;
+        margin-bottom: $space-horizontal * 0.5;
       }
     }
   }
