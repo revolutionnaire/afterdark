@@ -159,6 +159,21 @@ function ad_add_widget_support() {
 // Hook the widget initiation and run our function
 add_action( 'widgets_init', 'ad_add_widget_support' );
 
+// Helper function to accept a page and returns the child categories based on the page name
+function ad_get_child_categories( $current_page ) {
+  // Assign the page slug as a category
+  $parent_category = get_category_by_slug( $current_page->post_name );
+
+  // Get child categories
+  $child_categories = get_terms( array(
+    'taxonomy' => 'category',
+    'child_of' => $parent_category->term_id,
+    'meta_key' => 'category_thumbnail',
+  ));
+
+  return $child_categories;
+}
+
 // Register the footer's navigation menu
 function ad_add_footer_navigation() {
   register_nav_menu( 'footer-menu',__( 'Footer' ) );

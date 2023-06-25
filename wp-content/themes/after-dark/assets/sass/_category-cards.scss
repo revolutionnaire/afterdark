@@ -1,0 +1,61 @@
+.category-card-wrapper {
+  @include respond-above(sm) {
+    @include flexbox((
+      display: flex,
+      flex-direction: row,
+      flex-wrap: wrap
+    ));
+  }
+
+  > .category-card {
+    height: 240px;
+    border-radius: $border-radius;
+    margin-top: $space-vertical * 0.5;
+    margin-bottom: $space-vertical * 0.5;
+    overflow: hidden;
+    position: relative;
+
+    &:first-child,
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+
+    @include respond-above(sm) {
+      @include flex-basis(calc(50% - (#{$space-horizontal} * 0.5)));
+
+      &:nth-child(odd) {
+        margin-right: $space-horizontal * 0.5;
+      }
+
+      &:nth-child(even) {
+        margin-left: $space-horizontal * 0.5;
+      }
+    }
+
+    header > a {
+      opacity: $cards-inactive-opacity;
+      transition: $content-card-image-animation;
+
+      &:hover {
+        opacity: 1;
+        transition: $content-card-image-animation;
+      }
+
+      > h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+    }
+
+    header > a > h2 {
+      background-color: $color-foreground;
+      color: $color-background;
+      font-weight: $default-bold-weight;
+      padding: $space-horizontal;
+      border-radius: $border-radius;
+    }
+  }
+}
