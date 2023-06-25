@@ -27,7 +27,7 @@ $loop = new WP_Query( $args );
 <?php else : ?>
     <section class="wrapper">
       <center>
-        <p>Sorry, no posts were found!</p>
+        <h2>Sorry, no posts were found!</h2>
       </center>
     </section>
 <?php endif; ?>

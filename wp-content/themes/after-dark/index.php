@@ -6,7 +6,7 @@
     <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post ) ); ?>
 <?php endwhile; else : ?>
       <article>
-        <p>Sorry, no posts were found!</p>
+        <h2>Sorry, no posts were found!</h2>
       </article>
 <?php endif; ?>
   </section>

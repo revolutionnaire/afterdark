@@ -26,7 +26,7 @@
       </article>
 <?php endwhile; else : ?>
       <article>
-        <p>Sorry, no post was found!</p>
+        <h2>Sorry, no post was found!</h2>
       </article>
 <?php endif; ?>
   </section>
