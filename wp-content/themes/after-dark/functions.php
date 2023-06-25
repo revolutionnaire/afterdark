@@ -72,7 +72,7 @@ function ad_add_main_navigation() {
 add_action( 'init', 'ad_add_main_navigation' );
 
 // Helper function that adds  categories as  breadcrumbs
-function ad_categories_as_breadcrumbs( $id, $wrapper = false ) {
+function ad_categories_as_breadcrumbs( $id, $bar = false ) {
   // Check if ID is a post ID or a category ID
   if ( !empty( get_the_category( $id ) ) ) :
     $categories = get_the_category( $id );
@@ -82,8 +82,8 @@ function ad_categories_as_breadcrumbs( $id, $wrapper = false ) {
 
   // Check if there are any categories
   if ( ! empty( $categories ) ) :
-    echo '<nav id="breadcrumbs">';
-    if ( $wrapper === true) :
+    echo '<nav id="breadcrumbs" class="' . ( $bar === true ? ' breadcrumbs-bar' : '' ) . '">';
+    if ( $bar === true) :
       echo '<div class="wrapper">';
     endif;
     echo '<ul class="breadcrumbs">';
@@ -107,7 +107,7 @@ function ad_categories_as_breadcrumbs( $id, $wrapper = false ) {
       endif;
     endforeach;
     echo '</ul>';
-    if ( $wrapper === true) :
+    if ( $bar === true) :
       echo '</div>';
     endif;
     echo '</nav>';

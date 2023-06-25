@@ -2,6 +2,7 @@
 
 main {
   padding: $space-vertical 0;
+  margin-top: $navigation-height + 2 * $space-horizontal;
 }
 
 .wrapper {
@@ -16,6 +17,6 @@ main {
   }
 }
 
-body:not(.category) > main {
-  margin-top: $navigation-height + 2 * $space-horizontal;
+.breadcrumbs-bar ~ main {
+  margin-top: 0;
 }
