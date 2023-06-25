@@ -20,3 +20,11 @@ main {
 .breadcrumbs-bar ~ main {
   margin-top: 0;
 }
+
+.search-bar ~ main {
+  margin-top: 0;
+
+  @include respond-above(lg) {
+    margin-top: $navigation-height + 2 * $space-horizontal;
+  }
+}
