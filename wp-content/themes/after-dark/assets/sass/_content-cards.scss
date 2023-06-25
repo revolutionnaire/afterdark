@@ -37,6 +37,17 @@
       }
     }
   }
+
+  > .content-card-message {
+    margin-right: $space-horizontal;
+    margin-left: $space-horizontal;
+    @include flex-basis(100%);
+
+    @include respond-above(lg) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
 }
 
 .content-card {

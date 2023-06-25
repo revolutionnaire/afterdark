@@ -22,7 +22,7 @@ $children = ad_get_child_categories( get_queried_object() );
   <?php endforeach; else : ?>
     <article>
       <header>
-      <h2>Sorry, no <?php echo get_post_field( 'post_name', get_queried_object_id() ); ?> found</h2>
+        <h2>Sorry, no <?php echo get_post_field( 'post_name', get_queried_object_id() ); ?> found</h2>
       </header>
     </article>
   <?php endif; ?>
