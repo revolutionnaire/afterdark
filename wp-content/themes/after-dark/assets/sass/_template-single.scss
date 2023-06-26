@@ -22,6 +22,12 @@
           margin-right: $space-horizontal * 0.5;
           margin-bottom: 0;
         }
+
+        > .social-media-links > li:first-child {
+          padding-right: 0;
+          border-right: 0;
+
+        }
       }
     }
   }
@@ -43,11 +49,5 @@
       width: 400px;
       height: 300px;
     }
-  }
-
-  .social-media-links > li:first-child {
-    padding-right: 0;
-    border-right: 0;
-
   }
 }
