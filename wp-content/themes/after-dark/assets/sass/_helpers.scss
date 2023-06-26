@@ -61,6 +61,7 @@
 
   &::placeholder {
     color: $color-secondary;
+    transition: $navigation-search-animation;
   }
 
   &:active,
@@ -68,7 +69,7 @@
     outline: none;
 
     &::placeholder {
-      color: $color-secondary;
+      color: $color-foreground;
       transition: $navigation-search-animation;
     }
   }
