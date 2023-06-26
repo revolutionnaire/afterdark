@@ -61,7 +61,7 @@
 
   &::placeholder {
     color: $color-secondary;
-    transition: $navigation-search-animation;
+    transition: color 0.25s ease-in;
   }
 
   &:active,
@@ -70,7 +70,7 @@
 
     &::placeholder {
       color: $color-foreground;
-      transition: $navigation-search-animation;
+      transition: color 0.25s ease-in;
     }
   }
 }

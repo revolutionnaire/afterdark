@@ -256,17 +256,11 @@
       font-size: $default-heading-size;
       position: relative;
       top: -2px;
-      transition: $navigation-search-animation;
-
-      &::placeholder {
-        transition: $navigation-search-animation;
-      }
     }
 
     &:has(.input-text:active) ~ .menu-main-menu-container,
     &:has(.input-text:focus-visible) ~ .menu-main-menu-container  {
       opacity: 0.10;
-      transition: $navigation-search-sibling-animation;
 
       .menu-item > a:hover {
         color: $color-foreground;
