@@ -1,21 +1,51 @@
 // Define all navigation bar related styles here
 
+// Setup basic structure of navigation and toggling of menu on mobile phones
 #navigation {
-  background-color: $color-background;
   height: $navigation-height;
-  padding-top: $space-horizontal;
-  padding-bottom: $space-horizontal;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
   transition: $navigation-animation;
 
   > .wrapper {
     position: relative;
+
+    @include respond-above(sm) {
+      @include flexbox((
+        display: flex,
+        flex-direction: row
+      ));
+    }
+
+    header > h1 > a > #logo,
+    header > h2 > a > #logo {
+      .moon {
+        transition: $navigation-logo-animation;
+      }
+
+      .star {
+        transition: $navigation-logo-animation;
+      }
+
+      &:hover,
+      &:active {
+        .moon {
+          fill: #FFF;
+          transition: $navigation-logo-animation;
+        }
+
+        .star {
+          fill: #FFDD5C;
+          transition: $navigation-logo-animation;
+        }
+      }
+    }
+
+    > #hamburger {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 
   // Navigation bar toggling and element visibility on different screens
@@ -31,7 +61,7 @@
         opacity: 1;
         transition: $navigation-menu-item-animation;
 
-        @for $i from 1 to 10 {
+        @for $i from 1 to 4 {
           &:nth-child(#{$i}) {
             transition-delay: 0.06s + $i * 0.01s;
           }
@@ -113,179 +143,6 @@
   }
 }
 
-#navigation > .wrapper {
-  @include respond-above(sm) {
-    @include flexbox((
-      display: flex,
-      flex-direction: row
-    ));
-  }
-
-  // Logo
-  > header {
-    width: 24px;
-    padding-right: $space-horizontal * 0.5;
-    display: inline-block;
-
-    @include respond-above(sm) {
-      margin-top: 0;
-      display: block;
-    }
-
-    h1,
-    h2 {
-      margin-bottom: 0;
-
-        > a {
-        width: 24px;
-        height: 24px;
-        padding-bottom: 0;
-        display: block;
-        overflow: hidden;
-
-        > #logo {
-          width: 24px;
-          height: 24px;
-
-          .moon {
-            transition: $navigation-logo-animation;
-          }
-
-          .star {
-            transition: $navigation-logo-animation;
-          }
-
-          &:hover,
-          &:active {
-            .moon {
-              fill: #FFF;
-              transition: $navigation-logo-animation;
-            }
-
-            .star {
-              fill: #FFDD5C;
-              transition: $navigation-logo-animation;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  a {
-    color: $color-foreground;
-
-    &:hover,
-    &:active {
-      color: $color-action;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-  }
-
-  // Menu
-  > .menu-main-menu-container {
-    margin-top: $navigation-height + 2 * $space-horizontal;
-    margin-left: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transition: $navigation-animation;
-
-    > .nav-list {
-      > .menu-item {
-        padding-bottom: $space-vertical;
-
-        &:first-child {
-          padding-top: $space-vertical;
-        }
-
-        > a > h2  {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-    @include respond-above(sm) {
-      padding-left: $space-horizontal * 0.5;
-      margin-top: 0;
-      display: block;
-      position: static;
-      @include flex(0);
-    }
-
-    > .nav-list {
-      @include respond-above(sm) {
-        margin-top: 0;
-        position: static;
-        @include flexbox((
-          display: flex,
-          flex-direction: row,
-        ));
-
-        > .menu-item {
-          padding-top: 0;
-          padding-right: $space-horizontal * 0.5;
-          padding-bottom: 0;
-          padding-left: $space-horizontal * 0.5;
-          @include flex(1);
-
-          &:first-child {
-            padding-top: 0;
-            padding-left: 0;
-          }
-
-          &:last-child {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-  }
-
-  // Search
-  > #search {
-    padding-right: $space-horizontal * 0.5;
-    padding-left: $space-horizontal * 0.5;
-    display: none;
-
-    > .input-text[type="search" i] {
-      width: 100%;
-      font-size: $default-heading-size;
-      position: relative;
-      top: -2px;
-    }
-
-    &:has(.input-text:active) ~ .menu-main-menu-container,
-    &:has(.input-text:focus-visible) ~ .menu-main-menu-container  {
-      opacity: 0.10;
-
-      .menu-item > a:hover {
-        color: $color-foreground;
-      }
-    }
-
-    @include respond-above(lg) {
-      display: block;
-      @include flex(3);
-    }
-  }
-
-  #hamburger {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    .bar {
-      transition: $navigation-hamburger-animation;
-    }
-  }
-}
-
 // Move the navigation below the WordPress navigation bar when user is logged in
 .logged-in > #navigation {
   top: $wordpress-adminbar-height-mobile;
@@ -301,5 +158,138 @@
 
   @include respond-above(lg) {
     top: $wordpress-adminbar-height-desktop;
+  }
+}
+
+// Style the navigation bar and descendants
+#navigation {
+  background-color: $color-background;
+  padding-top: $space-horizontal;
+  padding-bottom: $space-horizontal;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+
+  > .wrapper {
+    // Override the default color of the links
+    a {
+      color: $color-foreground;
+
+      &:hover,
+      &:active {
+        color: $color-action;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+
+    // Logo
+    > header {
+      width: 24px;
+      padding-right: $space-horizontal * 0.5;
+      display: inline-block;
+
+      h1,
+      h2 {
+        margin-bottom: 0;
+
+        > a {
+          width: 24px;
+          height: 24px;
+          padding-bottom: 0;
+          display: block;
+          overflow: hidden;
+
+          > #logo {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    // Menu
+    > .menu-main-menu-container {
+      margin-top: $navigation-height + 2 * $space-horizontal;
+      margin-left: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: $navigation-animation;
+
+      @include respond-above(sm) {
+        padding-left: $space-horizontal * 0.5;
+        margin-top: 0;
+        display: block;
+        position: static;
+        @include flex(0);
+      }
+
+      > .nav-list {
+        @include respond-above(sm) {
+          margin-top: 0;
+          position: static;
+          @include flexbox((
+            display: flex,
+            flex-direction: row,
+          ));
+
+          > .menu-item {
+            padding-top: 0;
+            padding-right: $space-horizontal * 0.5;
+            padding-bottom: $space-vertical;
+            padding-left: $space-horizontal * 0.5;
+            @include flex(1);
+
+            &:first-child {
+              padding-top: 0;
+              padding-left: 0;
+            }
+
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+
+          > a > h2  {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    // Search
+    > #search {
+      padding-right: $space-horizontal * 0.5;
+      padding-left: $space-horizontal * 0.5;
+      display: none;
+
+      > .input-text[type="search" i] {
+        width: 100%;
+        font-size: $default-heading-size;
+        position: relative;
+        top: -2px;
+      }
+
+      &:has(.input-text:active) ~ .menu-main-menu-container,
+      &:has(.input-text:focus-visible) ~ .menu-main-menu-container  {
+        opacity: 0.10;
+
+        .menu-item > a:hover {
+          color: $color-foreground;
+        }
+      }
+
+      @include respond-above(lg) {
+        display: block;
+        @include flex(3);
+      }
+    }
   }
 }
