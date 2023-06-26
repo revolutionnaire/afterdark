@@ -14,6 +14,26 @@ add_action( 'wp_enqueue_scripts', 'ad_add_styles_and_scripts' );
 // Support featured images for posts
 add_theme_support( 'post-thumbnails' );
 
+// Helper function for SEO description
+function ad_seo_description() {
+  global $post;
+
+  // Check if it has an excerpt and pass the blog description if not
+  $content = ( !empty( get_the_excerpt( $post ) ) ) ? get_the_excerpt( $post ) : bloginfo( 'description' );
+
+  return $content;
+}
+
+// Helper function for SEO image
+function ad_seo_image() {
+  global $post;
+
+  // Check if the post or page has a featured image and if not pass the default image
+  $content = ( !empty( get_the_post_thumbnail_url( $post ) ) ) ? get_the_post_thumbnail_url( $post ) : get_template_directory_uri() . '/assets/images/Default-SEO-Image.jpg';
+
+  return $content;
+}
+
 // Add a custom class to manipulate class names in wp_nav_menu to use slugs instead of numbers
 class AD_Walker_Nav_Menu extends Walker_Nav_Menu {
   // Override the start_el method

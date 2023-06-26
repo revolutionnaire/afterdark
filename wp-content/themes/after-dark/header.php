@@ -13,9 +13,21 @@ $args = array (
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
-    <title><?php bloginfo('name'); ?> &#8250; <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
+    <title><?php bloginfo( 'name' ); ?> &#8250; <?php is_front_page() ? bloginfo( 'description' ) : wp_title(''); ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="robots" content="<?php echo ( is_search() ) ? 'noindex' : 'index'; ?>">
+    <meta name="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
+    <meta property="og:title" content="<?php the_title(); ?>">
+    <meta property="og:type" content="<?php echo ( is_singular('page') ) ? 'website' : 'article'; ?>">
+    <meta property="og:url" content="<?php echo esc_url( get_permalink() ); ?>">
+    <meta property="og:image" content="<?php echo esc_url( ad_seo_image() ); ?>">
+    <meta property="og:description" content="<?php echo esc_attr( ad_seo_description() ); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php the_title(); ?>">
+    <meta name="twitter:description" content="<?php echo esc_attr( ad_seo_description() ); ?>">
+    <meta name="twitter:image" content="<?php echo esc_url( ad_seo_image() ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="<?php echo esc_url(get_permalink()); ?>">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 <?php wp_head(); ?>
   </head>
