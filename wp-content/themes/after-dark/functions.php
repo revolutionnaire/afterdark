@@ -1,4 +1,22 @@
 <?php
+// Replace the logo on the login page
+function ad_replace_login_logo() {
+    $logo = get_template_directory_uri() . '/assets/images/Logo-Stroked-Moon.svg';
+
+    // Output the custom logo image
+    echo '<style type="text/css">
+        .login h1 a {
+            background-image: url(' . esc_url( $logo ) . ') !important;
+            background-size: contain !important;
+            height: 100px !important;
+            width: 100% !important;
+        }
+    </style>';
+}
+
+// Hook the function to the 'login_head' action
+add_action( 'login_head', 'ad_replace_login_logo' );
+
 // Add default styles and necessary JavaScript for all the pages
 function ad_add_styles_and_scripts() {
   // Use Inter from Google Fonts
