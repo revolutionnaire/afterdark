@@ -11,15 +11,14 @@ $args = array(
 
 $loop = new WP_Query( $args );
 ?>
-<?php if ( $loop->have_posts() ) : ?>
-  <?php $loop->the_post(); ?>
+<?php if ( $loop->have_posts() ) : $loop->the_post(); ?>
     <section>
       <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post, 'featured-article' => true ) ); ?>
       <div class="wrapper">
         <div class="content-card-wrapper">
   <?php while ( $loop -> have_posts() ) : ?>
   <?php $loop->the_post(); ?>
-  <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post ) ); ?>
+  <?php get_template_part( 'parts/content-card', 'content-card', array( 'post' => get_post() ) ); ?>
   <?php endwhile; ?>
         </div>
       </div>

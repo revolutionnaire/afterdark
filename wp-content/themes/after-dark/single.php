@@ -3,18 +3,7 @@
   <section>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <article>
-        <header class="title-card" >
-  <?php if ( has_post_thumbnail() ) : ?>
-          <div class="featured-image-container">
-    <?php the_post_thumbnail( $post->ID, array( 'class' => 'image-center-fit' ) ); ?>
-          </div>
-  <?php endif; ?>
-          <div class="wrapper">
-            <h1><?php the_title(); ?></h1>
-            <p>Written and Photographed by <?php the_author(); ?></p>
-            <p>Published on <?php the_date(); ?></p>
-          </div>
-        </header>
+  <?php get_template_part( 'parts/title-card', 'title-card' ); ?>
         <div class="wrapper">
           <div id="content">
   <?php the_content(); ?>

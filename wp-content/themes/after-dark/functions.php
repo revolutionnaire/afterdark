@@ -134,6 +134,7 @@ function ad_categories_as_breadcrumbs( $id, $bar = false ) {
   endif;
 }
 
+// Helper function to add links to share the current post or page
 function ad_social_media_links( $post ) {
     // Get the current post URL
     $post_url = urlencode( get_permalink( $post->ID ) );
@@ -141,7 +142,6 @@ function ad_social_media_links( $post ) {
     // Generate the social media sharing links
     $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
     $twitter_link = 'https://twitter.com/intent/tweet?url=' . $post_url;
-    $instagram_link = 'https://www.instagram.com/';
 
     // Output the social media sharing links
     echo '<ul class="social-media-links list-links">';

@@ -17,9 +17,9 @@ $children = ad_get_child_categories( get_queried_object() );
 </nav>
 <main>
   <section class="wrapper category-card-wrapper">
-  <?php if ( $children ) : foreach ($children as $child) : $thumbnail_id = get_term_meta( $child->term_id, 'category_thumbnail', true ); ?>
-    <?php get_template_part( 'parts/category-card', 'content-card', array( 'child' => $child, 'thumbnail-id' => $thumbnail_id ) ); ?>
-  <?php endforeach; else : ?>
+<?php if ( $children ) : foreach ($children as $child) : $thumbnail_id = get_term_meta( $child->term_id, 'category_thumbnail', true ); ?>
+  <?php get_template_part( 'parts/category-card', 'content-card', array( 'child' => $child, 'thumbnail-id' => $thumbnail_id ) ); ?>
+<?php endforeach; else : ?>
     <article>
       <header>
         <h2>Sorry, no <?php echo get_post_field( 'post_name', get_queried_object_id() ); ?> found</h2>
