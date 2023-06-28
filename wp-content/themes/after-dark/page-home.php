@@ -13,10 +13,10 @@ $loop = new WP_Query( $args );
 ?>
 <?php if ( $loop->have_posts() ) : $loop->the_post(); ?>
     <section>
-      <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post, 'featured-article' => true ) ); ?>
+      <?php get_template_part( 'parts/content-card', 'content-card', array( 'post' => get_post(), 'featured-article' => true ) ); ?>
       <div class="wrapper">
         <div class="content-card-wrapper">
-  <?php while ( $loop -> have_posts() ) : ?>
+  <?php while ( $loop->have_posts() ) : ?>
   <?php $loop->the_post(); ?>
   <?php get_template_part( 'parts/content-card', 'content-card', array( 'post' => get_post() ) ); ?>
   <?php endwhile; ?>
@@ -24,8 +24,10 @@ $loop = new WP_Query( $args );
       </div>
     </section>
 <?php else : ?>
-    <section class="wrapper">
-      <h2>Sorry, no posts were found!</h2>
+    <section>
+      <article class="wrapper">
+        <h2>Sorry, no posts were found!</h2>
+      </article>
     </section>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>

@@ -14,7 +14,7 @@
         </div>
       </article>
 <?php endwhile; else : ?>
-      <article>
+      <article class="wrapper">
         <h2>Sorry, no post was found!</h2>
       </article>
 <?php endif; ?>

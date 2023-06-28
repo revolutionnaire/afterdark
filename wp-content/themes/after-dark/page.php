@@ -9,7 +9,7 @@
       <?php the_content(); ?>
     </article>
   <?php endwhile; else : ?>
-    <article>
+    <article class="wrapper">
       <h2>>Sorry, the page wasn't found!</h2>
     </article>
   <?php endif; ?>
