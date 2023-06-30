@@ -1,4 +1,7 @@
 <?php
+// Include the custom walker class
+require_once get_template_directory() . '/includes/nav-walker-menu.php';
+
 // Define HTML structure of the Header Menu
 $args = array (
   'theme_location' => 'main-menu',
