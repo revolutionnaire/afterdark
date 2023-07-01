@@ -25,8 +25,8 @@ function ad_add_styles_and_scripts() {
   // Use Inter from Google Fonts
   wp_enqueue_style( 'google-fonts', "https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" );
 
-  // Navigation bar related JavaScript
-  wp_enqueue_script( 'afterdark-navigation' , get_template_directory_uri() . '/assets/js/navigation.js' );
+  // Load main JavaScript file
+  wp_enqueue_script( 'afterdark-navigation' , get_template_directory_uri() . '/main.js' );
 }
 
 // Hook to the scripts and style enqueueing

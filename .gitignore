@@ -32,3 +32,9 @@ wp-config.php
 
 # Sass cache
 **/.sass-cache
+
+# Node modules
+**/node_modules
+
+# Parcel cache
+**/.cache

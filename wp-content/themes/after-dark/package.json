@@ -1,0 +1,18 @@
+{
+  "name": "After Dark",
+  "version": "1.0.0",
+  "source": "src/locomotive-scroll.js",
+  "main": "assets/js/locomotive-scroll.js",
+  "scripts": {
+    "clean": "rm assets/js/locomotive-scroll.js",
+    "watch": "parcel watch assets/js/main.js --out-dir .",
+    "build": "parcel build assets/js/main.js --out-dir ."
+  },
+  "devDependencies": {
+    "locomotive-scroll": "^4.1.4",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "navigation.js": "^1.1.1"
+  }
+}
