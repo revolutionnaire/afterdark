@@ -2,16 +2,17 @@
 
 // Breakpoints
 $breakpoints: (
-  xs: 320px, // iPhone 5s
-  sm: 768px, // iPad Mini 8.3 portrait mode
-  md: 820px, // iPad Air portrait mode
-  lg: 1024px, // iPad Mini 8.3 landscape mode
-  xl: 1440px // Desktops
+  xs: (width: 320px, gutter: 6px), // iPhone 5s
+  sm: (width: 768px, gutter: 20px), // iPad Mini 8.3 portrait mode
+  md: (width: 820px, gutter: 20px), // iPad Air portrait mode
+  lg: (width: 1024px, gutter: 20px), // iPad Mini 8.3 landscape mode
+  xl: (width: 1440px, gutter: 20px) // Desktops
 );
 
 // Typography
 $default-font: 'Inter', sans-serif;
 $default-bold-weight: 700;
+$default-large-text-size: 64px;
 $default-heading-size: 24px;
 $default-body-size: 16px;
 $default-footnote-size: 12px;

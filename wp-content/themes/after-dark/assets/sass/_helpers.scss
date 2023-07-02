@@ -16,9 +16,118 @@
   visibility: visible;
 }
 
+@each $breakpoint, $properties in $breakpoints {
+  $width: map-get($properties, width);
+  $gutter: map-get($properties, gutter);
+
+  @for $i from 1 through 12 {
+    @if $breakpoint == 'xs' {
+      .column-#{$i}-#{$breakpoint} {
+        width: calc((100vw/12) * #{$i} - #{$gutter} - #{$space-horizontal} * 2);
+        margin-right: $gutter * 0.5;
+        margin-left: $gutter * 0.5;
+      }
+    }
+
+    @if $breakpoint == 'sm' or $breakpoint == 'md' {
+      @include respond-above($breakpoint) {
+        .column-#{$i}-#{$breakpoint} {
+          width: calc((100vw/12) * #{$i} - #{$gutter} - #{$space-horizontal} * 2);
+          margin-right: $gutter * 0.5;
+          margin-left: $gutter * 0.5;
+        }
+      }
+    }
+
+    @if $breakpoint == 'lg' or $breakpoint == 'xl' {
+      @include respond-above($breakpoint) {
+        .column-#{$i}-#{$breakpoint} {
+          width: calc((#{$wrapper-width}/12) * #{$i} - #{$gutter});
+          margin-right: $gutter * 0.5;
+          margin-left: $gutter * 0.5;
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint, $properties in $breakpoints {
+  $width: map-get($properties, width);
+  $gutter: map-get($properties, gutter);
+
+  @for $i from 1 through 11 {
+    @if $breakpoint == 'xs' {
+      .column-move-#{$i}-#{$breakpoint} {
+        margin-left: calc((100vw/12) * #{$i} + #{$gutter} - #{$space-horizontal} * 2);
+      }
+    }
+
+    @if $breakpoint == 'sm' or $breakpoint == 'md' {
+      @include respond-above($breakpoint) {
+        .column-move-#{$i}-#{$breakpoint} {
+          margin-left: calc((100vw/12) * #{$i} + #{$gutter} - #{$space-horizontal} * 2);
+        }
+      }
+    }
+
+    @if $breakpoint == 'lg' or $breakpoint == 'xl' {
+      @include respond-above($breakpoint) {
+        .column-move-#{$i}-#{$breakpoint} {
+          margin-left: calc((#{$wrapper-width}/12) * #{$i} + #{$gutter});
+        }
+      }
+    }
+  }
+
+  @if $breakpoint == 'xs' {
+    .column-move-center-#{$breakpoint} {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .column-move-cancel-#{$breakpoint} {
+      margin-right: $gutter * 0.5;
+      margin-left: $gutter * 0.5;
+    }
+  } @else {
+    @include respond-above($breakpoint) {
+      .column-move-center-#{$breakpoint} {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .column-move-cancel-#{$breakpoint} {
+        margin-right: $gutter * 0.5;
+        margin-left: $gutter * 0.5;
+      }
+    }
+  }
+}
+
+.text-large {
+  font-size: $default-heading-size;
+  font-weight: 400;
+
+  @include respond-above(sm) {
+    font-size: $default-large-text-size;
+  }
+}
+
 .text-emphasis,
 .text-data {
   font-weight: $default-bold-weight;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .image-center-fit {
@@ -32,10 +141,10 @@
 }
 
 .list-links {
-@include flexbox((
-  display: inline-flex,
-  flex-direction: row
-));
+  @include flexbox((
+    display: inline-flex,
+    flex-direction: row
+  ));
 
   > li {
     padding-right: $space-horizontal * 0.5;

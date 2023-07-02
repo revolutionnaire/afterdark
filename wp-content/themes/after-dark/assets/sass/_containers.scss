@@ -10,10 +10,32 @@ main {
   margin-left: $space-horizontal;
 
   @include respond-above(lg) {
-    width: 100%;
     max-width: $wrapper-width;
     margin-right: auto;
     margin-left: auto;
+  }
+}
+
+.columns {
+  margin-right: $space-horizontal;
+  margin-left: $space-horizontal;
+
+  @include respond-above(lg) {
+    max-width: $wrapper-width;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  > [class*="column-"] {
+    display: inline-block;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 
