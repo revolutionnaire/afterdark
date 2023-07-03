@@ -4,17 +4,15 @@ Template Name: Parent Category Page
 Description: Page for displaying the child categories of the parent category specified by the page slug
 */
 
+global $post;
+
 get_header();
 
+$cat = ad_get_category_id_by_slug( $post->post_name );
 $children = ad_get_child_categories( get_queried_object() );
+
+ad_categories_as_breadcrumbs( $cat, true );
 ?>
-<nav id="breadcrumbs" class="breadcrumbs-bar">
-  <div class="wrapper">
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs-ancestor-category"><strong><?php echo get_the_title(); ?></strong></li>
-    </ul>
-  </div>
-</nav>
 <main>
   <section class="wrapper category-card-wrapper">
 <?php if ( $children ) : foreach ($children as $child) : $thumbnail_id = get_term_meta( $child->term_id, 'category_thumbnail', true ); ?>

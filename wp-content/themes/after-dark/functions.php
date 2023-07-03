@@ -98,6 +98,13 @@ function ad_add_main_navigation() {
 // Hook to the init action hook, run the header menu function
 add_action( 'init', 'ad_add_main_navigation' );
 
+// Helper function to get category id by page slug that is the same as the  category slug
+function ad_get_category_id_by_slug( $page_slug ) {
+  $category = get_category_by_slug( $page_slug );
+
+  return get_cat_ID( $category->name );
+}
+
 // Helper function that adds  categories as  breadcrumbs
 function ad_categories_as_breadcrumbs( $id, $bar = false ) {
   // Check if ID is a post ID or a category ID
@@ -118,13 +125,21 @@ function ad_categories_as_breadcrumbs( $id, $bar = false ) {
       $ancestors = get_ancestors( $category->term_id, 'category' );
       $ancestors = array_reverse( $ancestors );
 
-      // Output the ancestor categories as roots
-      foreach ( $ancestors as $ancestor ) :
-        $taxonomy = get_category( $ancestor );
-        // Check if the parent category has a page that displays child categories
-        $link = ( ! empty( get_permalink( get_page_by_path( $taxonomy->slug ) ) ) ) ? get_permalink( get_page_by_path( $taxonomy->slug ) ) : get_category_link( $taxonomy->term_id );
-        echo '<li class="breadcrumbs-ancestor-category"><a href="' . esc_url( $link ) . '">' . esc_html( $taxonomy->name ) . '</a></li>';
-      endforeach;
+      if ( ! empty ( $ancestors ) ) :
+        // Output the ancestor categories as roots
+        foreach ( $ancestors as $ancestor ) :
+          $taxonomy = get_category( $ancestor );
+          // Check if the parent category has a page that displays child categories
+          $link = ( ! empty( get_permalink( get_page_by_path( $taxonomy->slug ) ) ) ) ? get_permalink( get_page_by_path( $taxonomy->slug ) ) : get_category_link( $taxonomy->term_id );
+          echo '<li class="breadcrumbs-ancestor-category"><a href="' . esc_url( $link ) . '">' . esc_html( $taxonomy->name ) . '</a></li>';
+        endforeach;
+      else :
+        if ( is_single() ) :
+          echo '<li class="breadcrumbs-ancestor-category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></li>';
+        else :
+          echo '<li class="breadcrumbs-ancestor-category text-emphasis">' . esc_html( $category->name ) . '</li>';
+        endif;
+      endif;
 
       // Output the current category as a link if it's a child
       if ( ! empty( $ancestors )  && is_single () ) :
@@ -143,19 +158,19 @@ function ad_categories_as_breadcrumbs( $id, $bar = false ) {
 
 // Helper function to add links to share the current post or page
 function ad_social_media_links( $post ) {
-    // Get the current post URL
-    $post_url = urlencode( get_permalink( $post->ID ) );
+  // Get the current post URL
+  $post_url = urlencode( get_permalink( $post->ID ) );
 
-    // Generate the social media sharing links
-    $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
-    $twitter_link = 'https://twitter.com/intent/tweet?url=' . $post_url;
+  // Generate the social media sharing links
+  $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
+  $twitter_link = 'https://twitter.com/intent/tweet?url=' . $post_url;
 
-    // Output the social media sharing links
-    echo '<ul class="social-media-links list-links">';
-    echo '<li><small>Share on</small></li>';
-    echo '<li><a href="' . esc_url( $facebook_link ) . '" target="_blank" rel="nofollow">Facebook</a></li>';
-    echo '<li><a href="' . esc_url( $twitter_link ) . '" target="_blank" rel="nofollow">Twitter</a></li>';
-    echo '</ul>';
+  // Output the social media sharing links
+  echo '<ul class="social-media-links list-links">';
+  echo '<li><small>Share on</small></li>';
+  echo '<li><a href="' . esc_url( $facebook_link ) . '" target="_blank" rel="nofollow">Facebook</a></li>';
+  echo '<li><a href="' . esc_url( $twitter_link ) . '" target="_blank" rel="nofollow">Twitter</a></li>';
+  echo '</ul>';
 }
 
 // Register two sidebars one for posts and the other for guides
