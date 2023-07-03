@@ -232,6 +232,10 @@
       }
 
       > .nav-list {
+        > .current-menu-item {
+          transform: scaleY(-1);
+        }
+
         @include respond-above(sm) {
           margin-top: 0;
           position: static;
@@ -246,6 +250,10 @@
             padding-bottom: $space-vertical;
             padding-left: $space-horizontal * 0.5;
             @include flex(1);
+
+            &.current-menu-item {
+              transform: scaleY(-1) translateY(50%);
+            }
 
             &:first-child {
               padding-top: 0;
