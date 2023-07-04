@@ -174,7 +174,8 @@
     }
   }
 
-  &::after {
+  &.list-item-post::after,
+  &.list-item-category-link::after {
     content: url('assets/images/right-arrow-black.svg');
     vertical-align: middle;
     margin-left: $space-horizontal;
