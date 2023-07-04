@@ -173,6 +173,31 @@ function ad_social_media_links( $post ) {
   echo '</ul>';
 }
 
+// Helper function to get all posts by category
+function ad_get_posts_by_category( $category_slug, $number_of_posts = 3 ) {
+  $category_posts = new WP_Query(array(
+    'category_name' => $category_slug,
+    'posts_per_page' => $number_of_posts
+  ));
+
+  if ( ! empty( $category_posts ) ) :
+    return $category_posts;
+  else :
+    return 'Category slug does not exits';
+  endif;
+}
+
+// Helper class for getting the link to the category page by passing the category slug
+function ad_get_category_link( $category_slug ) {
+  $category = get_category_by_slug( $category_slug );
+
+  if ( ! empty( $category ) ):
+    return get_category_link( $category->term_id );
+  else :
+    return 'The category slug does not exist';
+  endif;
+}
+
 // Register two sidebars one for posts and the other for guides
 function ad_add_widget_support() {
   // Widget area for related guides
