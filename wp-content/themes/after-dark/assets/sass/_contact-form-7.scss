@@ -1,0 +1,60 @@
+// Define all style related to the plugin Contact Form 7 here
+
+input.wpcf7-text,
+textarea.wpcf7-textarea,
+input.wpcf7-submit {
+  font-family: 'Inter', sans-serif;
+  font-size: $default-heading-size;
+  padding: $space-horizontal $space-horizontal;
+}
+
+input.wpcf7-text,
+textarea.wpcf7-textarea {
+  width: calc(100% - (#{$space-horizontal} * 2 + 2px));
+  border: 1px solid $color-foreground;
+
+  &:placeholder {
+    color: $color-foreground;
+  }
+
+  &:focus-visible {
+    outline: $color-secondary auto 1px;
+  }
+}
+
+input.wpcf7-submit {
+  background: $color-action url('assets/images/right-arrow-white.svg') no-repeat scroll 88% center;
+  color: $color-background;
+  padding-right: 32px;
+  float: right;
+  border: none;
+
+  &::after {
+    vertical-align: middle;
+    margin-left: $space-horizontal;
+  }
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: $space-vertical 0;
+  padding: 0;
+  border: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  color: #027353;
+  border: none;
+}
+
+.wpcf7 form.failed .wpcf7-response-output {
+  color: $color-action;
+  border: none;
+}
+
+.wpcf7 form.spam .wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  color: #F24B0F;
+  border: none;
+}

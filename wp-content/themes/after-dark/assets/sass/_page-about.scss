@@ -1,0 +1,236 @@
+// Define all styles related to the About page template here
+
+.page-about > #content {
+  overflow: hidden;
+
+  > .wrapper > article > .fold {
+    height: calc(100vh - #{$navigation-height} + 2 * #{$space-vertical});
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-after-dark-adventures {
+  > h1 {
+    margin-top: 11.0915vh;
+  }
+
+  > a {
+    width: 68px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+
+    &:hover {
+      border-bottom: none;
+    }
+
+    > #arrow-down {
+      width: 24px;
+      height: 24px;
+      margin-right: auto;
+      margin-left: auto;
+
+      > path {
+        fill: $color-action;
+      }
+    }
+  }
+
+  @include respond-above(sm) {
+    > h1 {
+      margin-top: 27.449vh;
+    }
+  }
+
+  @include respond-above(lg) {
+    > h1 {
+      margin-top: 31.347656vh;
+    }
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-what-will-we-write {
+  > h3 {
+    margin-top: 15.3169vh;
+  }
+
+  @include respond-above(sm) {
+    > h3 {
+      margin-top: 7.4139vh;
+    }
+  }
+
+  @include respond-above(lg) {
+    > h3 {
+      margin-top: 13.281vh;
+    }
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-fun-activities {
+  position: relative;
+
+  > h3 {
+    margin-top: 19.19vh;
+  }
+
+  > #star {
+    width: 234px;
+    height: 234px;
+    position: absolute;
+    right: 66px;
+    bottom: 402px;
+  }
+
+  > #stars {
+    width: 242px;
+    height: 242px;
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+
+    > #stars-right,
+    > #stars-left {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include respond-above(sm) {
+    > h3 {
+      margin-top: 8.03177vh;
+    }
+
+    > #star {
+      width: 537px;
+      height: 537px;
+      right: 155px;
+    }
+
+    > #stars {
+      width: 555px;
+      height: 555px;
+    }
+  }
+
+  @include respond-above(md) {
+    > #star {
+      bottom: 560px;
+    }
+  }
+
+  @include respond-above(lg) {
+    > #star {
+      right: 200px;
+      bottom: 172px;
+    }
+
+    > h3 {
+      margin-top: 21.7773vh;
+    }
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-local-music-venues {
+  > #cocktail {
+    width: 254px;
+    height: 254px;
+    margin-top: 14.4366vh;
+    position: relative;
+    left: 96px;
+
+    > svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include respond-above(sm) {
+    > #cocktail {
+      width: 428px;
+      height: 428px;
+      margin-top: 10.591vh;
+      left: 314px;
+    }
+  }
+
+  @include respond-above(md) {
+    > #cocktail {
+      left: 367px;
+    }
+  }
+
+  @include respond-above(lg) {
+    > #cocktail {
+      margin-top: 26.367vh;
+      left: 712px;
+    }
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-open-late {
+  > #coffee {
+    width: 162px;
+    height: 162px;
+    margin-top: 35.387vh;
+    position: relative;
+    left: 67px;
+  }
+
+  @include respond-above(sm) {
+    > #coffee {
+      width: 266px;
+      height: 266px;
+      margin-top: 32.39vh;
+      left: 188px;
+    }
+  }
+
+  @include respond-above(lg) {
+    > #coffee {
+      margin-top: 32.5915vh;
+      left: 138px;
+    }
+  }
+}
+
+.page-about > #content > .wrapper > article > #fold-neighborhoods {
+  > #buildings {
+    width: 183px;
+    height: 183px;
+    margin-top: 28.169vh;
+    position: relative;
+    left: 113px;
+
+    > #buildings-left,
+    > #buildings-center,
+    > #buildings-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include respond-above(sm) {
+    > #buildings {
+      width: 304px;
+      height: 304px;
+      margin-top: 29.479vh;
+      left: 227px;
+    }
+  }
+
+  @include respond-above(md) {
+    > #buildings {
+      left: 272px;
+    }
+  }
+
+  @include respond-above(lg) {
+    > #buildings {
+      margin-top: 17.871vh;
+      left: 786px;
+    }
+  }
+}
