@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrub: true,
         toggleActions: 'restart pause reverse reset'
       },
-      yPercent: -260,
+      yPercent: -160,
       opacity: 0
     });
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrub: true,
         toggleActions: 'restart pause reverse reset'
       },
-      yPercent: -160,
+      yPercent: -180,
       opacity: 0
     });
 
