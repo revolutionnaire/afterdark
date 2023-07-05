@@ -33,7 +33,7 @@ function ad_add_styles_and_scripts() {
 }
 
 // Hook to the scripts and style enqueueing
-add_action( 'wp_enqueue_scripts', 'ad_add_styles_and_scripts' );
+add_action( 'wp_enqueue_scripts', 'ad_add_styles_and_scripts', 99 );
 
 // Support featured images for posts
 add_theme_support( 'post-thumbnails' );
