@@ -4,7 +4,7 @@
     <input type="search" class="input-text" name="s" placeholder="<?php echo ( ! empty( get_search_query() ) ? get_search_query() : 'Search for a location' ); ?>" autocomplete="off">
   </div>
 </form>
-<main id="content" class="wrapper">
+<main class="wrapper">
   <section class="content-card-wrapper">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post ) ); ?>

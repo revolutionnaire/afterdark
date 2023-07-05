@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php if ( is_category() ) : ad_categories_as_breadcrumbs( $cat, true ); endif; ?>
-<main id="content" class="wrapper">
+<main class="wrapper">
   <section class="content-card-wrapper">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <?php $post = get_post(); get_template_part( 'parts/content-card', 'content-card', array( 'post' => $post ) ); ?>

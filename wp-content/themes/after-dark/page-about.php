@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<main id="content">
+<main>
   <section class="wrapper">
-<?php if ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article>
       <div id="fold-after-dark-adventures" class="fold">
         <h1 id="headline-adventures" class="column-10-xs column-move-center-xs column-8-sm text-large text-emphasis text-center">After Dark Adventures</h1>
@@ -160,7 +160,7 @@
   <?php the_content(); ?>
       </div>
     </article>
-<?php else : ?>
+<?php endwhile; else : ?>
     <article class="wrapper">
       <h2>>Sorry, the page wasn't found!</h2>
     </article>

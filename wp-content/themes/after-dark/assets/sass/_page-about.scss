@@ -1,6 +1,6 @@
 // Define all styles related to the About page template here
 
-.page-about > #content {
+.page-about > main {
   overflow: hidden;
 
   > .wrapper > article > .fold {
@@ -8,7 +8,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-after-dark-adventures {
+.page-about > main > .wrapper > article > #fold-after-dark-adventures {
   > h1 {
     margin-top: 11.0915vh;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-what-will-we-write {
+.page-about > main > .wrapper > article > #fold-what-will-we-write {
   > h3 {
     margin-top: 15.3169vh;
   }
@@ -66,7 +66,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-fun-activities {
+.page-about > main > .wrapper > article > #fold-fun-activities {
   position: relative;
 
   > h3 {
@@ -131,7 +131,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-local-music-venues {
+.page-about > main > .wrapper > article > #fold-local-music-venues {
   > #cocktail {
     width: 254px;
     height: 254px;
@@ -169,7 +169,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-open-late {
+.page-about > main > .wrapper > article > #fold-open-late {
   > #coffee {
     width: 162px;
     height: 162px;
@@ -195,7 +195,7 @@
   }
 }
 
-.page-about > #content > .wrapper > article > #fold-neighborhoods {
+.page-about > main > .wrapper > article > #fold-neighborhoods {
   > #buildings {
     width: 183px;
     height: 183px;
