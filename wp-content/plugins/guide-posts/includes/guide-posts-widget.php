@@ -41,7 +41,7 @@ class Related_Guides_Widget extends WP_Widget {
               echo '<header>';
               if ( has_post_thumbnail() ) :
                 echo '<div class="featured-image-container">';
-                the_post_thumbnail( $post->ID, array ( 'class' => 'image-center-fit' ) );
+                the_post_thumbnail( $post->ID, array ( 'class' => 'image-center-fit', 'alt' => esc_attr( get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ) ) ) );
                 echo '</div>';
               endif;
                 echo '<center>';
