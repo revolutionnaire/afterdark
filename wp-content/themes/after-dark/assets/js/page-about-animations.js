@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     '+=0.05');
 
-    timeline.from('#content-what-will-we-write', {
+    gsap.from('#content-what-will-we-write', {
       scrollTrigger: {
         trigger: '#content-what-will-we-write',
         start: 'top center',
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
       delay: 0.1
     });
 
-    timeline.from('#content-nighttime-tours', {
+    gsap.from('#content-nighttime-tours', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top center',
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0,
     });
 
-    timeline.from('#star', {
+    gsap.from('#star', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top center',
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#stars-left', {
+    gsap.from('#stars-left', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top bottom',
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#stars-right', {
+    gsap.from('#stars-right', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top bottom',
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#cocktail-glass', {
+    gsap.from('#cocktail-glass', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'top center',
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#cocktail-olive', {
+    gsap.from('#cocktail-olive', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'center center',
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
       delay: 0.1
     });
 
-    timeline.from('#content-local-venues', {
+    gsap.from('#content-local-venues', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'top center',
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#coffee', {
+    gsap.from('#coffee', {
       scrollTrigger: {
         trigger: '#coffee',
         start: 'top bottom',
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#content-24-7', {
+    gsap.from('#content-24-7', {
       scrollTrigger: {
         trigger: '#coffee',
         start: 'top center',
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#buildings-left', {
+    gsap.from('#buildings-left', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#buildings-center', {
+    gsap.from('#buildings-center', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#buildings-right', {
+    gsap.from('#buildings-right', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0
     });
 
-    timeline.from('#content-neighborhoods', {
+    gsap.from('#content-neighborhoods', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',

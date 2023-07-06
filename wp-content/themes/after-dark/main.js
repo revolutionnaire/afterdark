@@ -8916,7 +8916,7 @@ ScrollTrigger.core = {
   }
 };
 _getGSAP() && gsap.registerPlugin(ScrollTrigger);
-},{"./Observer.js":"../../node_modules/gsap/Observer.js"}],"about-animations.js":[function(require,module,exports) {
+},{"./Observer.js":"../../node_modules/gsap/Observer.js"}],"page-about-animations.js":[function(require,module,exports) {
 "use strict";
 
 var _gsap = require("gsap");
@@ -8941,7 +8941,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: 50,
       opacity: 0
     }, '+=0.05');
-    timeline.from('#content-what-will-we-write', {
+    _gsap.gsap.from('#content-what-will-we-write', {
       scrollTrigger: {
         trigger: '#content-what-will-we-write',
         start: 'top center',
@@ -8952,7 +8952,7 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 0,
       delay: 0.1
     });
-    timeline.from('#content-nighttime-tours', {
+    _gsap.gsap.from('#content-nighttime-tours', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top center',
@@ -8962,7 +8962,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: -300,
       opacity: 0
     });
-    timeline.from('#star', {
+    _gsap.gsap.from('#star', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top center',
@@ -8973,7 +8973,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: -100,
       opacity: 0
     });
-    timeline.from('#stars-left', {
+    _gsap.gsap.from('#stars-left', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top bottom',
@@ -8984,7 +8984,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: -160,
       opacity: 0
     });
-    timeline.from('#stars-right', {
+    _gsap.gsap.from('#stars-right', {
       scrollTrigger: {
         trigger: '#content-nighttime-tours',
         start: 'top bottom',
@@ -8995,7 +8995,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: -180,
       opacity: 0
     });
-    timeline.from('#cocktail-glass', {
+    _gsap.gsap.from('#cocktail-glass', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'top center',
@@ -9006,7 +9006,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: -180,
       opacity: 0
     });
-    timeline.from('#cocktail-olive', {
+    _gsap.gsap.from('#cocktail-olive', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'center center',
@@ -9018,7 +9018,7 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 0,
       delay: 0.1
     });
-    timeline.from('#content-local-venues', {
+    _gsap.gsap.from('#content-local-venues', {
       scrollTrigger: {
         trigger: '#cocktail',
         start: 'top center',
@@ -9029,7 +9029,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: 150,
       opacity: 0
     });
-    timeline.from('#coffee', {
+    _gsap.gsap.from('#coffee', {
       scrollTrigger: {
         trigger: '#coffee',
         start: 'top bottom',
@@ -9040,7 +9040,7 @@ document.addEventListener('DOMContentLoaded', function () {
       xPercent: 200,
       opacity: 0
     });
-    timeline.from('#content-24-7', {
+    _gsap.gsap.from('#content-24-7', {
       scrollTrigger: {
         trigger: '#coffee',
         start: 'top center',
@@ -9051,7 +9051,7 @@ document.addEventListener('DOMContentLoaded', function () {
       yPercent: 100,
       opacity: 0
     });
-    timeline.from('#buildings-left', {
+    _gsap.gsap.from('#buildings-left', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -9062,7 +9062,7 @@ document.addEventListener('DOMContentLoaded', function () {
       y: -100,
       opacity: 0
     });
-    timeline.from('#buildings-center', {
+    _gsap.gsap.from('#buildings-center', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -9073,7 +9073,7 @@ document.addEventListener('DOMContentLoaded', function () {
       y: -240,
       opacity: 0
     });
-    timeline.from('#buildings-right', {
+    _gsap.gsap.from('#buildings-right', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -9084,7 +9084,7 @@ document.addEventListener('DOMContentLoaded', function () {
       y: -180,
       opacity: 0
     });
-    timeline.from('#content-neighborhoods', {
+    _gsap.gsap.from('#content-neighborhoods', {
       scrollTrigger: {
         trigger: '#fold-neighborhoods',
         start: 'top center',
@@ -9102,8 +9102,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 require("./navigation.js");
 require("./scroll.js");
-require("./about-animations.js");
-},{"./navigation.js":"navigation.js","./scroll.js":"scroll.js","./about-animations.js":"about-animations.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./page-about-animations.js");
+},{"./navigation.js":"navigation.js","./scroll.js":"scroll.js","./page-about-animations.js":"page-about-animations.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -9128,7 +9128,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52562" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60677" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

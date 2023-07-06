@@ -13,8 +13,8 @@ textarea.wpcf7-textarea {
   width: calc(100% - (#{$space-horizontal} * 2 + 2px));
   border: 1px solid $color-foreground;
 
-  &:placeholder {
-    color: $color-foreground;
+  &::placeholder {
+    color: $color-secondary;
   }
 
   &:focus-visible {
@@ -28,11 +28,6 @@ input.wpcf7-submit {
   padding-right: 32px;
   float: right;
   border: none;
-
-  &::after {
-    vertical-align: middle;
-    margin-left: $space-horizontal;
-  }
 }
 
 .wpcf7 form .wpcf7-response-output {

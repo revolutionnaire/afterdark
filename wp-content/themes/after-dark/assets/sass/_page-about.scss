@@ -183,7 +183,7 @@
       width: 266px;
       height: 266px;
       margin-top: 32.39vh;
-      left: 188px;
+      left: 186px;
     }
   }
 
@@ -201,7 +201,7 @@
     height: 183px;
     margin-top: 28.169vh;
     position: relative;
-    left: 113px;
+    left: 120px;
 
     > #buildings-left,
     > #buildings-center,
@@ -217,7 +217,7 @@
       width: 304px;
       height: 304px;
       margin-top: 29.479vh;
-      left: 227px;
+      left: 364px;
     }
   }
 
@@ -231,6 +231,15 @@
     > #buildings {
       margin-top: 17.871vh;
       left: 786px;
+    }
+  }
+}
+
+.page-about > main > .wrapper > article > #fold-announcements,
+.page-about > main > .wrapper > article > #fold-contact-us {
+  @include respond-above(lg) {
+    [class*="column-"] {
+      margin-left: 0;
     }
   }
 }
