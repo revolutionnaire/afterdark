@@ -30,8 +30,7 @@ $args = array (
     <meta name="twitter:description" content="<?php echo esc_attr( ad_seo_description() ); ?>">
     <meta name="twitter:image" content="<?php echo esc_url( ad_seo_image() ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="<?php echo esc_url(get_permalink()); ?>">
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+    <link rel="canonical" href="<?php echo esc_url( get_permalink() ); ?>">
 <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
