@@ -101,6 +101,20 @@ function ad_add_main_navigation() {
 // Hook to the init action hook, run the header menu function
 add_action( 'init', 'ad_add_main_navigation' );
 
+// Helper function for creating an instance of the main menu
+function ad_create_main_menu() {
+  // Pass the array to load main menu
+  return array (
+    'theme_location' => 'main-menu',
+    'menu_class' => 'nav-list',
+    'menu_id' => null,
+    'container' => 'nav',
+    'link_before' => '<h2>',
+    'link_after' => '</h2>',
+    'walker' => new AD_Walker_Nav_Menu()
+  );
+}
+
 // Helper function to get category id by page slug that is the same as the  category slug
 function ad_get_category_id_by_slug( $page_slug ) {
   $category = get_category_by_slug( $page_slug );
@@ -251,3 +265,13 @@ function ad_add_footer_navigation() {
 
 // Hook to the init action hook, run the header menu function
 add_action( 'init', 'ad_add_footer_navigation' );
+
+// Helper function for creating an instance of the footer menu
+function ad_create_footer_menu() {
+  return array (
+    'theme_location' => 'footer-menu',
+    'menu_class' => 'nav',
+    'container' => null,
+    'items_wrap' => '<ul id="%1$s" class="%2$s list-links">%3$s</ul>'
+  );
+}

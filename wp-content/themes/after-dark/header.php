@@ -1,18 +1,3 @@
-<?php
-// Include the custom walker class
-require_once get_template_directory() . '/includes/nav-walker-menu.php';
-
-// Define HTML structure of the Header Menu
-$args = array (
-  'theme_location' => 'main-menu',
-  'menu_class' => 'nav-list',
-  'menu_id' => null,
-  'container' => 'nav',
-  'link_before' => '<h2>',
-  'link_after' => '</h2>',
-  'walker' => new AD_Walker_Nav_Menu()
-);
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -50,7 +35,7 @@ $args = array (
         <form id="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
           <input type="search" class="input-text" name="s" placeholder="<?php echo ( ! empty( get_search_query() ) ? get_search_query() : 'Search for a neighborhood or city' ); ?>" autocomplete="off">
         </form>
-<?php if ( has_nav_menu( 'main-menu' ) ) : wp_nav_menu( $args ); endif; ?>
+<?php if ( has_nav_menu( 'main-menu' ) ) : wp_nav_menu( ad_create_main_menu() ); endif; ?>
         <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path class="bar" d="M3 5H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
           <path class="bar" d="M3 12H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
