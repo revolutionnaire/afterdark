@@ -122,10 +122,10 @@ function ad_get_category_id_by_slug( $page_slug ) {
   return get_cat_ID( $category->name );
 }
 
-// Helper function that adds  categories as  breadcrumbs
+// Helper function that adds  categories as  breadcrumbs by the post's ID or the category ID on the category page
 function ad_categories_as_breadcrumbs( $id, $bar = false ) {
   // Check if ID is a post ID or a category ID
-  if ( !empty( get_the_category( $id ) ) ) :
+  if ( ! empty( get_the_category( $id ) ) ) :
     $categories = get_the_category( $id );
   else:
     $categories = array( get_category( $id ) );
@@ -134,15 +134,23 @@ function ad_categories_as_breadcrumbs( $id, $bar = false ) {
   // Check if there are any categories
   if ( ! empty( $categories ) ) :
     echo '<nav id="breadcrumbs" class="' . ( $bar === true ? ' breadcrumbs-bar' : '' ) . '">';
-    if ( $bar === true) :
+    if ( $bar === true ) :
       echo '<div class="wrapper">';
     endif;
     echo '<ul class="breadcrumbs">';
+
+    // Filter out the category that doesn't have a child when it is a post
+    if ( is_single() ) {
+      $categories = array_filter( $categories, function( $category ) {
+        return ! empty( get_ancestors( $category->term_id, 'category' ) );
+      } );
+    }
+
     foreach ( $categories as $category ) :
       $ancestors = get_ancestors( $category->term_id, 'category' );
       $ancestors = array_reverse( $ancestors );
 
-      if ( ! empty ( $ancestors ) ) :
+      if ( ! empty( $ancestors ) ) :
         // Output the ancestor categories as roots
         foreach ( $ancestors as $ancestor ) :
           $taxonomy = get_category( $ancestor );
@@ -159,14 +167,14 @@ function ad_categories_as_breadcrumbs( $id, $bar = false ) {
       endif;
 
       // Output the current category as a link if it's a child
-      if ( ! empty( $ancestors )  && is_single () ) :
+      if ( ! empty( $ancestors ) && is_single() ) :
         echo '<li class="breadcrumbs-child-category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></li>';
       elseif ( ! empty( $ancestors ) ) :
-        echo '<li class="breadcrumbs-child-category">' . esc_html( $category->name ) . '</a></li>';
+        echo '<li class="breadcrumbs-child-category">' . esc_html( $category->name ) . '</li>';
       endif;
     endforeach;
     echo '</ul>';
-    if ( $bar === true) :
+    if ( $bar === true ) :
       echo '</div>';
     endif;
     echo '</nav>';
