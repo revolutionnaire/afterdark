@@ -18,6 +18,11 @@ wp-config.php
 # MacOS hidden files
 .DS_Store
 
+# Vim files
+*~
+*.swp
+*.swo
+
 # All plugins
 #
 # Note: If you wish to whitelist plugins,
