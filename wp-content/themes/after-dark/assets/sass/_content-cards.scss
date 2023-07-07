@@ -72,9 +72,8 @@
       }
     }
 
-    .wrapper {
+    > .wrapper {
       text-align: left;
-      display: block;
 
       @include respond-above(sm) {
         text-align: center;
@@ -83,6 +82,11 @@
       > h2 {
         margin-top: $space-vertical;
         margin-bottom: $space-horizontal * 0.5;
+      }
+
+      > p:first-child {
+        margin-top: $space-vertical;
+        margin-bottom: 0;
       }
     }
   }

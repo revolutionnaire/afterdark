@@ -6,9 +6,9 @@
   <?php the_post_thumbnail( $post->ID, array( 'class' => 'image-center-fit', 'alt' => esc_attr( get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ) ) ) ); ?>
     </a>
 <?php endif; ?>
-    <center class="wrapper">
+    <div class="wrapper text-center">
       <h2><?php echo get_the_title( $post->ID ); ?></h2>
       <p><a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php echo esc_attr( get_the_title( $post->ID ) ); ?>">Read now</a>&nbsp;&#8250;</p>
-    </center>
+    </div>
   </header>
 </article>
