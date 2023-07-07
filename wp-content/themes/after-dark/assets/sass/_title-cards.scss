@@ -12,7 +12,13 @@
     }
   }
 
-  .wrapper {
+  > cite {
+    font-size: $default-footnote-size;
+    margin: $space-vertical $space-horizontal;
+    display: block;
+  }
+
+  > .wrapper {
     margin-top: $space-vertical;
     margin-bottom: $space-vertical;
   }

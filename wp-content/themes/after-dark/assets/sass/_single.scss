@@ -23,7 +23,12 @@
           margin-bottom: 0;
         }
 
-        > .social-media-links > li:first-child {
+        .wp-caption-text {
+          font-size: $default-footnote-size;
+          padding-top: $space-vertical * 0.5;
+        }
+
+        > footer > .social-media-links > li:first-child {
           padding-right: 0;
           border-right: 0;
 

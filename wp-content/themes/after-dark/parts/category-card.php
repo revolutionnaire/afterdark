@@ -8,5 +8,6 @@
 <?php endif; ?>
       <h2><?php echo esc_html( $category->name ); ?></h2>
     </a>
+    <?php $caption = wp_get_attachment_caption( $thumbnail_id ); if ( ! empty( $caption ) ) : ?><cite><?php echo wp_kses_post( $caption ); ?></cite><?php endif; ?>
   </header>
 </article>

@@ -32,30 +32,39 @@
       }
     }
 
-    header > a {
-      opacity: $cards-inactive-opacity;
-      transition: $content-card-image-animation;
-
-      &:hover {
-        opacity: 1;
+    header {
+      > a {
+        opacity: $cards-inactive-opacity;
         transition: $content-card-image-animation;
+
+        &:hover {
+          opacity: 1;
+          transition: $content-card-image-animation;
+        }
+
+        > h2 {
+          background-color: $color-foreground;
+          color: $color-background;
+          font-weight: $default-bold-weight;
+          padding: $space-horizontal;
+          border-radius: $border-radius;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
       }
 
-      > h2 {
+      > cite {
+        background-color: rgba($color-background, 0.667);
+        font-size: $default-footnote-size;
+        padding: ($space-vertical * 0.5) ($space-horizontal * 0.5);
+        border-top-right-radius: $border-radius;
+        display: inline-block;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        bottom: 0;
+        left: 0;
       }
-
-    }
-
-    header > a > h2 {
-      background-color: $color-foreground;
-      color: $color-background;
-      font-weight: $default-bold-weight;
-      padding: $space-horizontal;
-      border-radius: $border-radius;
     }
   }
 }
