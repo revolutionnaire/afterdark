@@ -8,6 +8,14 @@ class Related_Guides_Widget extends WP_Widget {
       'Related Guides',
       array( 'description' => 'Displays guides in the same neighborhood or city' )
     );
+
+    if ( is_active_widget( false, false, $this->id_base ) ) :
+      add_action( 'wp_head', array( $this, 'css' ) );
+    endif;
+  }
+
+  public function css() {
+    include 'parts/widget-style.php';
   }
 
   public function widget( $args, $instance ) {
@@ -33,29 +41,29 @@ class Related_Guides_Widget extends WP_Widget {
 
         if ( $posts_query->have_posts() ) :
           echo $args['before_widget'];
-          echo $args['before_title'] . 'Other Guides About '. $first_child_category->name . $args['after_title'];
+          echo $args['before_title'] . esc_html( 'Other Guides About ' ) . $first_child_category->name . $args['after_title'];
 
           while ( $posts_query->have_posts() ) :
             $posts_query->the_post();
-            echo '<article class="content-card content-card-' . $post->ID . '">';
-              echo '<header>';
+            echo wp_kses_post( '<article class="content-card content-card-' . esc_attr( $post->ID ) . '">' );
+              echo wp_kses_post( '<header>' );
               if ( has_post_thumbnail() ) :
-                echo '<div class="featured-image-container">';
+                echo wp_kses_post( '<div class="featured-image-container">' );
                 the_post_thumbnail( $post->ID, array ( 'class' => 'image-center-fit', 'alt' => esc_attr( get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ) ) ) );
-                echo '</div>';
+                echo wp_kses_post( '</div>' );
               endif;
-                echo '<center>';
-                echo '<p >' . get_the_title() . '</p>';
-                echo '<p><a href="' . get_permalink() . '">Read now</a>&nbsp;&#8250;</p>';
-                echo '</center>';
-              echo '</header>';
-            echo '</article>';
-            echo '</div>';
+                echo wp_kses_post( '<div class="wrapper">' );
+                  echo wp_kses_post( '<p class="text-center">' . esc_html( get_the_title() ) . '</p>' );
+                  echo wp_kses_post( '<p class="text-center"><a href="' . esc_url( get_permalink() ) . '">Read now</a>&nbsp;&#8250;</p>' );
+                echo wp_kses_post( '</div>' );
+              echo wp_kses_post( '</header>' );
+            echo wp_kses_post( '</article>' );
+            echo wp_kses_post( '</div>' );
           endwhile;
-          echo $args['after_widget'];
+          echo wp_kses_post( $args['after_widget'] );
         else :
-          echo $args['before_widget'];
-          echo $args['before_title'] . 'No related guides found' . $args['after_title'];
+          echo wp_kses_post( $args['before_widget'] );
+          echo wp_kses_post( $args['before_title'] ) . 'No related guides found' . wp_kses_post( $args['after_title'] );
         endif;
         // Restore the global post data
         wp_reset_postdata();
@@ -67,8 +75,8 @@ class Related_Guides_Widget extends WP_Widget {
     $number_of_posts = ! empty( $instance['number_of_posts'] ) ? $instance['number_of_posts'] : 5;
 ?>
     <p>
-        <label for="<?php echo $this->get_field_id( 'number_of_posts' ); ?>">Number of posts to display:</label>
-        <input class="widefat" type="number" id="<?php echo $this->get_field_id( 'number_of_posts' ); ?>" name="<?php echo $this->get_field_name( 'number_of_posts' ); ?>" value="<?php echo esc_attr( $number_of_posts ); ?>" min="1" max="10">
+        <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>">Number of posts to display:</label>
+        <input class="widefat" type="number" id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" value="<?php echo esc_attr( $number_of_posts ); ?>" min="1" max="10">
     </p>
 <?php
   }
@@ -81,9 +89,6 @@ class Related_Guides_Widget extends WP_Widget {
 }
 
 // Registered custom widget
-function gp_register_related_guides_widget() {
+function guides_register_related_guides_widget() {
   register_widget( 'Related_Guides_Widget' );
 }
-
-// Hook to the action that fires after all the WordPress widgets have been registered
-add_action( 'widgets_init', 'gp_register_related_guides_widget' );

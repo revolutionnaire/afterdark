@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // Send a POST request to update the post meta
-      fetch(guidePostsREST.restURL + '/delete-location/' + editor.getCurrentPostId() + '/' + i, {
+      fetch(guidesREST.restURL + '/delete-location/' + editor.getCurrentPostId() + '/' + i, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'X-WP-Nonce': guidePostsREST.nonce // Include the nonce in the request headers
+          'X-WP-Nonce': guidesREST.nonce // Include the nonce in the request headers
         },
       })
       .then(function(response) {
@@ -117,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // Send a POST request to update the post meta
-      fetch(guidePostsREST.restURL + '/save-locations/' + editor.getCurrentPostId(), {
+      fetch(guidesREST.restURL + '/save-locations/' + editor.getCurrentPostId(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-WP-Nonce': guidePostsREST.nonce
+          'X-WP-Nonce': guidesREST.nonce
         },
         body: JSON.stringify(locationsData)
       })
