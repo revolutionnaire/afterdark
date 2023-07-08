@@ -115,6 +115,18 @@ function ad_create_main_menu() {
   );
 }
 
+// Helper function to get the  home page loop
+function ad_home_page_loop( $post_count ) {
+  $args = array(
+    'post_type' => 'guide', // Set the post type to 'guide'
+    'posts_per_page' => $post_count, // Display 7 posts (must always be an odd number to evenly distribute the posts)
+    'orderby' => 'date', // Order posts by date
+    'order'   => 'DESC', // Display posts in descending order (newest to oldest)
+  );
+
+  return new WP_Query( $args );
+}
+
 // Helper function to get category id by page slug that is the same as the  category slug
 function ad_get_category_id_by_slug( $page_slug ) {
   $category = get_category_by_slug( $page_slug );
