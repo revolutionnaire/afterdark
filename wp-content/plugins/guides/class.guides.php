@@ -49,6 +49,9 @@ class Guides {
     // Allow iframe tags in the content
     add_filter( 'wp_kses_allowed_html', array( 'Guides', 'allow_iframe_tags'), 10, 1 );
 
+    // Grant editors category management capabilities and contributors Media Library capabilities
+    add_filter('user_role', array( 'Guides', 'grant_user_permissions' ) );
+
     // Add custom post type to the default WordPress loop
     add_action( 'pre_get_posts', array( 'Guides', 'include_guides_in_loop' ) );
 
@@ -99,9 +102,17 @@ class Guides {
     return $allowedposttags;
   }
 
-  public static function grant_category_management_to_editors() {
-    $role = get_role( 'editor' );
-    $role->add_cap( 'manage_categories' );
+  public static function grant_user_permissions() {
+    if ( isset( $roles['editor'] ) ) :
+      $roles['editor']->add_cap('manage_categories');
+    endif;
+
+    if ( isset($roles['contributor'] ) ) :
+      $roles['contributor']->add_cap( 'upload_files' );
+      $roles['contributor']->add_cap( 'edit_posts' );
+    endif;
+
+    return $roles;
   }
 
   public static function add_locations_to_content( $content ) {

@@ -17,7 +17,6 @@ require_once( GUIDE_POSTS__PLUGIN_DIR . 'class.guides-rest-api.php' );
 
 add_action( 'init', array( 'Category_Featured_Image', 'init' ) );
 add_action( 'init', array( 'Guides', 'init' ) );
-add_action( 'init', array( 'Guides', 'grant_category_management_to_editors' ) );
 add_action( 'widgets_init', 'guides_register_related_guides_widget' );
 add_action( 'init', array( 'Guides_REST_API', 'init_hook' ) );
 add_action( 'rest_api_init', array( 'Guides_REST_API', 'init' ) );
