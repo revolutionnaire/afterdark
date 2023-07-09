@@ -23,6 +23,7 @@
           margin-bottom: 0;
         }
 
+        img + .wp-element-caption,
         .wp-caption-text {
           font-size: $default-footnote-size;
           padding-top: $space-vertical * 0.5;

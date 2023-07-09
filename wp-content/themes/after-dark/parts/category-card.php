@@ -2,12 +2,16 @@
 <article class="category-card category-card-<?php echo $category->term_id; ?>">
   <header>
 <?php $thumbnail_id = $args['thumbnail-id']; ?>
-    <a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
 <?php if ( ! empty( $args['thumbnail-id'] ) ) : ?>
-      <img src="<?php echo wp_get_attachment_image_url( $thumbnail_id, 'large' ); ?>" class="image-center-fit" alt="<?php echo esc_attr( get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ) ); ?>" />
+    <figure class="featured-image-container">
+      <a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
+        <img src="<?php echo wp_get_attachment_image_url( $thumbnail_id, 'large' ); ?>" class="image-center-fit" alt="<?php echo esc_attr( get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ) ); ?>" />
+      </a>
+      <?php $caption = wp_get_attachment_caption( $thumbnail_id ); if ( ! empty( $caption ) ) : ?><figcaption><?php echo wp_kses_post( $caption ); ?></figcaption><?php endif; ?>
+    </figure>
 <?php endif; ?>
+    <a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
       <h2><?php echo esc_html( $category->name ); ?></h2>
     </a>
-    <?php $caption = wp_get_attachment_caption( $thumbnail_id ); if ( ! empty( $caption ) ) : ?><cite><?php echo wp_kses_post( $caption ); ?></cite><?php endif; ?>
   </header>
 </article>

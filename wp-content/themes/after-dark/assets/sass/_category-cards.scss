@@ -33,7 +33,7 @@
     }
 
     header {
-      > a {
+      > .featured-image-container {
         opacity: $cards-inactive-opacity;
         transition: $content-card-image-animation;
 
@@ -42,28 +42,27 @@
           transition: $content-card-image-animation;
         }
 
-        > h2 {
-          background-color: $color-foreground;
-          color: $color-background;
-          font-weight: $default-bold-weight;
-          padding: $space-horizontal;
-          border-radius: $border-radius;
+        > figcaption {
+          background-color: rgba($color-background, 0.667);
+          font-size: $default-footnote-size;
+          padding: ($space-vertical * 0.5) ($space-horizontal * 0.5);
+          border-top-right-radius: $border-radius;
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          bottom: 0;
+          left: 0;
         }
       }
 
-      > cite {
-        background-color: rgba($color-background, 0.667);
-        font-size: $default-footnote-size;
-        padding: ($space-vertical * 0.5) ($space-horizontal * 0.5);
-        border-top-right-radius: $border-radius;
-        display: inline-block;
+      > a > h2 {
+        background-color: $color-foreground;
+        color: $color-background;
+        font-weight: $default-bold-weight;
+        padding: $space-horizontal;
+        border-radius: $border-radius;
         position: absolute;
-        bottom: 0;
-        left: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   }
