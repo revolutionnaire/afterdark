@@ -99,6 +99,11 @@ class Guides {
     return $allowedposttags;
   }
 
+  public static function grant_category_management_to_editors() {
+    $role = get_role( 'editor' );
+    $role->add_cap( 'manage_categories' );
+  }
+
   public static function add_locations_to_content( $content ) {
     // Check if it's a guide
     if ( is_singular( 'guide' ) ) :
