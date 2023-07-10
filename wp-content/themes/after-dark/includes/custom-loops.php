@@ -7,7 +7,8 @@
  */
 
 // Helper function to get the  home page loop
-function ad_home_page_loop( $post_count ) {
+function ad_home_page_loop() {
+  $posts_count = get_option( 'posts_per_page' );
   $args = array(
     'post_type' => 'guide', // Set the post type to 'guide'
     'posts_per_page' => $post_count, // Display 7 posts (must always be an odd number to evenly distribute the posts)

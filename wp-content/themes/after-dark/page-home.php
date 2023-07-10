@@ -1,6 +1,6 @@
 <?php get_header(); ?>
   <main>
-<?php $loop = ad_home_page_loop( 7 ); if ( $loop->have_posts() ) : $loop->the_post(); ?>
+<?php $loop = ad_home_page_loop(); if ( $loop->have_posts() ) : $loop->the_post(); ?>
     <section>
       <?php get_template_part( 'parts/content-card', 'content-card', array( 'post' => get_post(), 'featured-article' => true ) ); ?>
       <div class="wrapper">
