@@ -9,9 +9,7 @@ class Related_Guides_Widget extends WP_Widget {
       array( 'description' => 'Displays guides in the same neighborhood or city' )
     );
 
-    if ( is_active_widget( false, false, $this->id_base ) ) :
-      add_action( 'wp_head', array( $this, 'css' ) );
-    endif;
+    add_action( 'admin_head-widgets.php', array( $this, 'css' ) );
   }
 
   public function css() {
