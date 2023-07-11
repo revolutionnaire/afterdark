@@ -50,7 +50,10 @@ class Guides {
     add_filter( 'wp_kses_allowed_html', array( 'Guides', 'allow_iframe_tags'), 10, 1 );
 
     // Grant editors category management capabilities and contributors Media Library capabilities
-    add_filter('user_role', array( 'Guides', 'grant_user_permissions' ) );
+    add_filter( 'user_role', array( 'Guides', 'grant_user_permissions' ) );
+
+    // Restrict contributors to guides
+    add_action( 'admin_menu', array( 'Guides', 'hide_posts_admin_page' ) );
 
     // Add custom post type to the default WordPress loop
     add_action( 'pre_get_posts', array( 'Guides', 'include_guides_in_loop' ) );
@@ -113,6 +116,12 @@ class Guides {
     endif;
 
     return $roles;
+  }
+
+  public static function hide_posts_admin_page() {
+    if ( current_user_can( 'contributor' ) ) :
+      remove_menu_page('edit.php');
+    endif;
   }
 
   public static function add_locations_to_content( $content ) {
