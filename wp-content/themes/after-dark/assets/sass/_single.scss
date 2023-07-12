@@ -5,7 +5,7 @@
 
   > section > article {
 
-    > .wrapper {
+    > div.wrapper {
       @include respond-above(sm) {
         @include flexbox((
           display: flex,
@@ -28,12 +28,19 @@
           font-size: $default-footnote-size;
           padding-top: $space-vertical * 0.5;
         }
+      }
 
-        > footer > .social-media-links > li:first-child {
-          padding-right: 0;
-          border-right: 0;
+    }
 
-        }
+    > footer.wrapper > .social-media-links {
+      @include flexbox((
+        display: flex
+      ));
+
+      > li:first-child {
+        padding-right: 0;
+        border-right: 0;
+
       }
     }
   }

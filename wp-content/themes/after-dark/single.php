@@ -7,13 +7,13 @@
         <div class="wrapper">
           <div id="content">
   <?php the_content(); ?>
-            <footer>
-  <?php ad_social_media_links( $post ); ?>
-  <?php ad_categories_as_breadcrumbs( $post->ID ); ?>
-            </footer>
           </div>
   <?php get_sidebar(); ?>
         </div>
+        <footer class="wrapper">
+  <?php ad_social_media_links( $post ); ?>
+  <?php ad_categories_as_breadcrumbs( $post->ID ); ?>
+        </footer>
       </article>
 <?php endwhile; else : ?>
       <article class="wrapper">

@@ -15,8 +15,8 @@
       ));
     }
 
-    header > h1 > a > #logo,
-    header > h2 > a > #logo {
+    > header > h1 > a > #logo,
+    > header > h2 > a > #logo {
       .moon {
         transition: $navigation-logo-animation;
       }
