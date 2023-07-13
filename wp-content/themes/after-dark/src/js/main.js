@@ -1,8 +1,35 @@
+import { NavigationBar } from './navigation.js';
+import Lenis from '@studio-freight/lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
+  const navigationBar = new NavigationBar('#navigation');
+
   if (document.body.classList.contains('page-about')) {
+    // Setup Lenis
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: true
+    });
+
+    lenis.on('scroll', (e) => {});
+
+    const scrollFunction = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(scrollFunction);
+    }
+
+    requestAnimationFrame(scrollFunction);
+
+    document.querySelector('[href="#fold-what-will-we-write"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      lenis.scrollTo('#fold-what-will-we-write', {
+        offset: -96
+      });
+    });
+
+    // Setup GSAP animations
     gsap.registerPlugin(ScrollTrigger);
 
     let timeline = gsap.timeline();

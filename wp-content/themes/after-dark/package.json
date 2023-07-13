@@ -1,18 +1,16 @@
 {
   "name": "After Dark",
   "version": "1.0.0",
-  "source": "src/locomotive-scroll.js",
-  "main": "assets/js/locomotive-scroll.js",
   "scripts": {
-    "watch": "parcel watch assets/js/main.js --out-dir .",
-    "build": "parcel build assets/js/main.js --out-dir ."
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "watch": "parcel watch src/js/main.js --out-dir .",
+    "build": "parcel build src/js/main.js --out-dir ."
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.16",
     "gsap": "^3.12.2",
     "navigation.js": "^1.1.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }

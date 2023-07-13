@@ -43,3 +43,4 @@ wp-config.php
 
 # Parcel cache
 **/.cache
+**/.parcel-cache

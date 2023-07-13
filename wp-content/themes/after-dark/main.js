@@ -118,27 +118,54 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"navigation.js":[function(require,module,exports) {
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('hamburger').addEventListener('click', function () {
-    document.getElementById('navigation').classList.toggle('show');
-  });
-});
-window.addEventListener('scroll', function () {
-  var viewport = window.innerWidth || document.documentElement.clientWidth;
-  var iPadMini = 768; // Smallest supported tablet
+"use strict";
 
-  if (document.body.classList.contains('logged-in') === true && viewport < iPadMini) {
-    var navigation = document.getElementById('navigation');
-    var navigationHeight = navigation.offsetHeight;
-    var wpadminbarHeight = document.getElementById('wpadminbar').offsetHeight;
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrollTop >= wpadminbarHeight) {
-      navigation.classList.add('scrolling');
-    } else {
-      navigation.classList.remove('scrolling');
-    }
-  }
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.NavigationBar = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var NavigationBar = /*#__PURE__*/function () {
+  function NavigationBar(element) {
+    var _this = this;
+    _classCallCheck(this, NavigationBar);
+    this.navigationBar = document.querySelector(element);
+    var hamburger = this.navigationBar.querySelector('#hamburger');
+    hamburger.addEventListener('click', this.toggleMenu.bind(this));
+    document.addEventListener('DOMContentLoaded', function () {
+      _this.moveNavigationBar();
+    });
+    window.addEventListener('scroll', function () {
+      _this.moveNavigationBar();
+    });
+  }
+  _createClass(NavigationBar, [{
+    key: "toggleMenu",
+    value: function toggleMenu() {
+      this.navigationBar.classList.toggle('show');
+    }
+  }, {
+    key: "moveNavigationBar",
+    value: function moveNavigationBar() {
+      var viewport = window.innerWidth || document.documentElement.clientWidth;
+      var iPadMini = 768; // Smallest supported tablet
+
+      if (document.body.classList.contains('logged-in') === true && viewport < iPadMini) {
+        var navigationHeight = this.navigationBar.offsetHeight;
+        var wpadminbarHeight = document.getElementById('wpadminbar').offsetHeight;
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (scrollTop >= wpadminbarHeight) this.navigationBar.classList.add('scrolling');else this.navigationBar.classList.remove('scrolling');
+      }
+    }
+  }]);
+  return NavigationBar;
+}();
+exports.NavigationBar = NavigationBar;
 },{}],"../../node_modules/@studio-freight/lenis/dist/lenis.mjs":[function(require,module,exports) {
 "use strict";
 
@@ -600,32 +627,7 @@ var n = /*#__PURE__*/function () {
     }]), t;
   }();
 exports.default = l;
-},{}],"scroll.js":[function(require,module,exports) {
-"use strict";
-
-var _lenis = _interopRequireDefault(require("@studio-freight/lenis"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-document.addEventListener('DOMContentLoaded', function () {
-  if (document.body.classList.contains('page-about')) {
-    var lenis = new _lenis.default({
-      smoothWheel: true,
-      smoothTouch: true
-    });
-    lenis.on('scroll', function (e) {});
-    var scrollFunction = function scrollFunction(time) {
-      lenis.raf(time);
-      requestAnimationFrame(scrollFunction);
-    };
-    requestAnimationFrame(scrollFunction);
-    document.querySelector('[href="#fold-what-will-we-write"]').addEventListener('click', function (event) {
-      event.preventDefault();
-      lenis.scrollTo('#fold-what-will-we-write', {
-        offset: -96
-      });
-    });
-  }
-});
-},{"@studio-freight/lenis":"../../node_modules/@studio-freight/lenis/dist/lenis.mjs"}],"../../node_modules/gsap/gsap-core.js":[function(require,module,exports) {
+},{}],"../../node_modules/gsap/gsap-core.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8916,13 +8918,36 @@ ScrollTrigger.core = {
   }
 };
 _getGSAP() && gsap.registerPlugin(ScrollTrigger);
-},{"./Observer.js":"../../node_modules/gsap/Observer.js"}],"page-about-animations.js":[function(require,module,exports) {
+},{"./Observer.js":"../../node_modules/gsap/Observer.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
+var _navigation = require("./navigation.js");
+var _lenis = _interopRequireDefault(require("@studio-freight/lenis"));
 var _gsap = require("gsap");
 var _ScrollTrigger = require("gsap/ScrollTrigger");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 document.addEventListener('DOMContentLoaded', function () {
+  var navigationBar = new _navigation.NavigationBar('#navigation');
   if (document.body.classList.contains('page-about')) {
+    // Setup Lenis
+    var lenis = new _lenis.default({
+      smoothWheel: true,
+      smoothTouch: true
+    });
+    lenis.on('scroll', function (e) {});
+    var scrollFunction = function scrollFunction(time) {
+      lenis.raf(time);
+      requestAnimationFrame(scrollFunction);
+    };
+    requestAnimationFrame(scrollFunction);
+    document.querySelector('[href="#fold-what-will-we-write"]').addEventListener('click', function (event) {
+      event.preventDefault();
+      lenis.scrollTo('#fold-what-will-we-write', {
+        offset: -96
+      });
+    });
+
+    // Setup GSAP animations
     _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
     var timeline = _gsap.gsap.timeline();
     timeline.from('#headline-adventures', {
@@ -9097,13 +9122,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-},{"gsap":"../../node_modules/gsap/index.js","gsap/ScrollTrigger":"../../node_modules/gsap/ScrollTrigger.js"}],"main.js":[function(require,module,exports) {
-"use strict";
-
-require("./navigation.js");
-require("./scroll.js");
-require("./page-about-animations.js");
-},{"./navigation.js":"navigation.js","./scroll.js":"scroll.js","./page-about-animations.js":"page-about-animations.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./navigation.js":"navigation.js","@studio-freight/lenis":"../../node_modules/@studio-freight/lenis/dist/lenis.mjs","gsap":"../../node_modules/gsap/index.js","gsap/ScrollTrigger":"../../node_modules/gsap/ScrollTrigger.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -9128,7 +9147,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60806" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

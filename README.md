@@ -14,7 +14,7 @@ Type `CREATE DATABASE aroundafterdark;` in the MySQL prompt to create a database
 
 Type `SHOW DATABASES;` to check if your database was successfully created.
 
-Go to the theme folder `wp-content/themes/after-dark` and type `compass compile --production` to update the existing `style.css`. You can also use `compass watch` to automate rebuilding it.
+Go to the theme folder `wp-content/themes/after-dark` and type `bundle install`. Then run `compass compile --production` to update the existing `style.css`. You can also use `compass watch` to automate rebuilding it.
 
 In the theme folder, type `npm install` then `npm run build` to install all the dependencies and update the About page template's JS file. You can also run `npm run watch` to automate the rebuilding.
 
