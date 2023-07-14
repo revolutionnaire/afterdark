@@ -10,13 +10,34 @@
 // Add default styles and necessary JavaScript for all the pages
 function ad_add_styles_and_scripts() {
   // Use Inter from Google Fonts
-  wp_enqueue_style( 'google-fonts', "https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" );
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap' );
 
-  // Load the theme's style last
-  wp_enqueue_style( 'afterdark-style', get_stylesheet_uri(), array(), null, 'all' );
+  // Load the theme's style
+  wp_enqueue_style( 'afterdark-style', get_stylesheet_uri(), array(), null, 'screen' );
+
+  // Load the editor's style last
+  wp_enqueue_style( 'editor-style', get_template_directory_uri() . '/editor-style.css', array(), null, 'screen' );
 
   // Load main JavaScript file
   wp_enqueue_script( 'afterdark-script' , get_template_directory_uri() . '/main.js' );
+}
+
+// Load theme's editor style for the classic editor
+function ad_custom_editor_styles() {
+  // Use Inter from Google Fonts on the classic editor
+  add_editor_style( 'https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap' );
+
+  // Load theme's editor styles
+  add_editor_style( 'editor-style.css' );
+}
+
+// Load theme's editor style for the block editor
+function ad_block_editor_styles() {
+  // Use Inter from Google Fonts on the block editor
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap' );
+
+  // Load theme's editor styles
+  wp_enqueue_style( 'editor-style', get_theme_file_uri( 'editor-style.css' ), array(), null, 'all' );
 }
 
 // Helper function for SEO description
