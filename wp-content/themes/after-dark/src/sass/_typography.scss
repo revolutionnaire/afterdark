@@ -4,6 +4,7 @@ body {
   font-family: $default-font;
   font-size: $default-body-size;
   text-rendering: optimizeLegibility;
+  font-kerning: auto;
 }
 
 h1  {
