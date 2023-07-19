@@ -8,6 +8,7 @@ require_once get_template_directory() . '/includes/header.php';
 require_once get_template_directory() . '/includes/custom-loops.php';
 require_once get_template_directory() . '/includes/breadcrumbs.php';
 require_once get_template_directory() . '/includes/archive.php';
+require_once get_template_directory() . '/includes/author.php';
 require_once get_template_directory() . '/includes/single.php';
 require_once get_template_directory() . '/includes/sidebar.php';
 require_once get_template_directory() . '/includes/footer.php';

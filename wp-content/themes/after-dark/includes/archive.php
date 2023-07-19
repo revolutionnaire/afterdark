@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * Site's Archive Pages
  * ------------------------------------------------------------------------
- * This file is for helper classes used in archive pages. Currently, the
+ * This file is for helper functions used in archive pages. Currently, the
  * theme uses index.php for the archive pages.
  */
 

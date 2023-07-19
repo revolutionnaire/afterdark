@@ -7,7 +7,7 @@
 <?php endif; ?>
   <div class="wrapper">
     <h1><?php the_title(); ?></h1>
-    <p>Written by <?php the_author(); ?></p>
+    <p>Written by <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta('ID') ) ); ?>"><?php the_author(); ?></a></p>
     <p>Published on <?php the_date(); ?></p>
   </div>
 </header>

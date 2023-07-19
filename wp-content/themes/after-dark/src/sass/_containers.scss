@@ -50,3 +50,7 @@ main {
     margin-top: $navigation-height + 2 * $space-horizontal;
   }
 }
+
+.contributor-card ~ main {
+  margin-top: 0;
+}

@@ -1,0 +1,28 @@
+// Define all styles related to contributor's card here
+
+.contributor-card {
+  height: 64px;
+  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
+  margin-bottom: $space-vertical;
+
+  > .avatar {
+    margin-right: $space-horizontal;
+    border-radius: 50%;
+    float: left;
+  }
+
+  > .contributor {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  > .contributor-link {
+    position: relative;
+    top: $space-vertical * 0.25;
+
+    &:hover {
+      color: rgba($color-action, 0.6);
+      border-bottom: none;
+    }
+  }
+}
