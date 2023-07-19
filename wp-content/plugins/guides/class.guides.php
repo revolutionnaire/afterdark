@@ -5,29 +5,6 @@ class Guides {
 
   public static function init() {
     if ( ! self::$initiated ) {
-      $labels = array(
-        'name' => 'Guides',
-        'singular_name' => 'Guide',
-        'menu_name' => 'Guides',
-      );
-
-      $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'has_archive' => true,
-        'publicly_queryable' => true,
-        'query_var' => true,
-        'rewrite' => array( 'slug' => 'guide' ),
-        'capability_type' => 'post',
-        'hierarchical' => false,
-        'supports' => array( 'title', 'editor', 'thumbnail' ),
-        'taxonomies' => array( 'category' ),
-        'menu_icon' => 'dashicons-location',
-        'show_in_rest' => true,
-      );
-
-      // Register the custom post type
-      register_post_type( 'guide', $args );
 
       self::init_hooks();
     }
@@ -49,17 +26,67 @@ class Guides {
     // Allow iframe tags in the content
     add_filter( 'wp_kses_allowed_html', array( 'Guides', 'allow_iframe_tags'), 10, 1 );
 
-    // Grant editors category management capabilities and contributors Media Library capabilities
-    add_filter( 'user_role', array( 'Guides', 'grant_user_permissions' ) );
-
     // Restrict contributors to guides
-    add_action( 'admin_menu', array( 'Guides', 'hide_posts_admin_page' ) );
+    add_action( 'admin_menu', array( 'Guides', 'hide_posts_contributor_admin_page' ) );
 
     // Add custom post type to the default WordPress loop
     add_action( 'pre_get_posts', array( 'Guides', 'include_guides_in_loop' ) );
 
     // Add the locations to the content of the custom post type when being rendered
     add_filter( 'the_content', array( 'Guides', 'add_locations_to_content' ), 20 );
+  }
+
+  public static function activate_plugin() {
+    self::register_guides();
+
+    // Grant role permissions
+    $editor = get_role( 'editor' );
+    $editor->add_cap( 'manage_categories' );
+
+    $contributor = get_role( 'contributor' );
+    $contributor->add_cap( 'upload_files' );
+  }
+
+  public static function deactivate_plugin() {
+    // Unregister Guides
+    unregister_post_type( 'guides' );
+
+    // Clear the permalinks to remove the post type's rules from the database.
+    flush_rewrite_rules();
+
+    // Restore role permissions
+    $editor = get_role( 'editor' );
+    $editor->remove_cap( 'manage_categories' );
+
+    $contributor = get_role( 'contributor' );
+    $contributor->remove_cap( 'upload_files' );
+  }
+
+  public static function register_guides() {
+    // Setup custom post
+    $labels = array(
+      'name' => 'Guides',
+      'singular_name' => 'Guide',
+      'menu_name' => 'Guides',
+    );
+
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'has_archive' => true,
+      'publicly_queryable' => true,
+      'query_var' => true,
+      'rewrite' => array( 'slug' => 'guide' ),
+      'capability_type' => 'post',
+      'hierarchical' => false,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+      'taxonomies' => array( 'category' ),
+      'menu_icon' => 'dashicons-location',
+      'show_in_rest' => true,
+    );
+
+    // Register the custom post type
+    register_post_type( 'guide', $args );
   }
 
   public static function add_guide_locations_meta_boxes() {
@@ -105,20 +132,7 @@ class Guides {
     return $allowedposttags;
   }
 
-  public static function grant_user_permissions() {
-    if ( isset( $roles['editor'] ) ) :
-      $roles['editor']->add_cap('manage_categories');
-    endif;
-
-    if ( isset($roles['contributor'] ) ) :
-      $roles['contributor']->add_cap( 'upload_files' );
-      $roles['contributor']->add_cap( 'edit_posts' );
-    endif;
-
-    return $roles;
-  }
-
-  public static function hide_posts_admin_page() {
+  public static function hide_posts_contributor_admin_page() {
     if ( current_user_can( 'contributor' ) ) :
       remove_menu_page('edit.php');
     endif;

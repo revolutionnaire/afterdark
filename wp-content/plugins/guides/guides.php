@@ -15,8 +15,12 @@ require_once( GUIDE_POSTS__PLUGIN_DIR . 'class.guides.php' );
 require_once( GUIDE_POSTS__PLUGIN_DIR . 'class.guides-widget.php' );
 require_once( GUIDE_POSTS__PLUGIN_DIR . 'class.guides-rest-api.php' );
 
+register_activation_hook( __FILE__, array( 'Guides', 'activate_plugin' ) );
+register_deactivation_hook( __FILE__, array( 'Guides', 'deactivate_plugin' ) );
+
 add_action( 'init', array( 'Category_Featured_Image', 'init' ) );
 add_action( 'init', array( 'Guides', 'init' ) );
+add_action( 'init', array( 'Guides', 'register_guides' ) );
 add_action( 'widgets_init', 'guides_register_related_guides_widget' );
 add_action( 'init', array( 'Guides_REST_API', 'init_hook' ) );
 add_action( 'rest_api_init', array( 'Guides_REST_API', 'init' ) );
