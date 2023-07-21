@@ -8,10 +8,10 @@
 
 // Helper function to get the  home page loop
 function ad_home_page_loop() {
-  $posts_count = get_option( 'posts_per_page' );
+  $post_count = get_option( 'posts_per_page' );
   $args = array(
     'post_type' => 'guide', // Set the post type to 'guide'
-    'posts_per_page' => $post_count, // Display 7 posts (must always be an odd number to evenly distribute the posts)
+    'posts_per_page' => $post_count, // Use settings for home page loop
     'orderby' => 'date', // Order posts by date
     'order'   => 'DESC', // Display posts in descending order (newest to oldest)
   );
