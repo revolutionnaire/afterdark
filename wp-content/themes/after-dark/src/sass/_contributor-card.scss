@@ -2,7 +2,7 @@
 
 .contributor-card {
   height: 64px;
-  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
+  margin-top: $space-vertical;
   margin-bottom: $space-vertical;
 
   > .avatar {
@@ -25,4 +25,9 @@
       border-bottom: none;
     }
   }
+}
+
+// Apply necessary top margin in the author pages
+#navigation ~ .contributor-card {
+  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
 }
