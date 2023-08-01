@@ -19,7 +19,12 @@ function ad_add_styles_and_scripts() {
   wp_enqueue_style( 'editor-style', get_template_directory_uri() . '/editor-style.css', array(), null, 'screen' );
 
   // Load main JavaScript file
-  wp_enqueue_script( 'afterdark-script' , get_template_directory_uri() . '/main.js' );
+  wp_enqueue_script( 'afterdark-main-script' , get_template_directory_uri() . '/assets/js/global.js' );
+
+  // Load About page JavaScript file in the appropriate page
+  if ( is_page( 'about' ) ) :
+    wp_enqueue_script( 'afterdark-about-script' , get_template_directory_uri() . '/assets/js/about.js' );
+  endif;
 }
 
 // Load theme's editor style for the classic editor

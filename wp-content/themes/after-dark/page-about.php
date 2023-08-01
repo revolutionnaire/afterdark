@@ -3,21 +3,20 @@
   <section class="wrapper">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article>
-      <div id="fold-after-dark-adventures" class="fold">
+      <header id="after-dark-adventures" class="fold">
         <h1 id="headline-adventures" class="column-10-xs column-move-center-xs column-8-sm text-large text-emphasis text-center">After Dark Adventures</h1>
-        <p id="content-budget" class="column-10-xs column-move-center-xs column-8-sm text-center">We are adventurers on a budget, exploring cities around the world to find delicious food, great accommodations, fun bars, and more. After the tourist attractions close, where can you go to have fun?</p>
-        <h5 id="content-discover" class="column-10-xs column-move-center-xs column-8-sm text-center">We want to discover what cities can offer after dark.</h5>
-        <a id="link-lets-go" href="#fold-what-will-we-write" class="text-center">
+        <h2 id="content-discover" class="column-10-xs column-move-center-xs column-8-sm text-center">We want to discover what cities can offer after dark on a budget.</h2>
+        <a id="link-lets-go" href="#what-will-we-write" class="text-center">
           Let's go!
           <svg id="arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.707 13.293C16.316 12.902 15.684 12.902 15.293 13.293L13 15.586V8C13 7.448 12.553 7 12 7C11.447 7 11 7.448 11 8V15.586L8.70701 13.293C8.31601 12.902 7.68401 12.902 7.29301 13.293C6.90201 13.684 6.90201 14.316 7.29301 14.707L12 19.414L16.707 14.707C17.098 14.316 17.098 13.684 16.707 13.293Z"/>
           </svg>
         </a>
-      </div>
-      <div id="fold-what-will-we-write" class="fold">
+      </header>
+      <section id="what-will-we-write" class="fold">
         <h3 id="content-what-will-we-write" class="column-6-xs column-move-1-xs column-7-sm column-move-1-sm column-5-lg column-move-cancel-lg text-large"><strong>What will we write about?</strong></h3>
-      </div>
-      <div id="fold-fun-activities" class="fold text-right">
+      </section>
+      <section id="fun-activities" class="fold text-right">
         <h3 id="content-nighttime-tours" class="column-8-xs column-move-1-xs column-9-sm column-move-1-sm column-6-lg column-move-cancel-lg text-large text-left">Nighttime tours, art spaces, and <strong>fun activities.</strong></h3>
         <svg version="1.1" id="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -41,8 +40,8 @@
               C158.7,392.8,159.9,392.4,161.2,392.4z"/>
           </svg>
         </div>
-      </div>
-      <div id="fold-local-music-venues" class="fold">
+      </section>
+      <section id="local-music-venues" class="fold">
         <div id="cocktail">
           <svg version="1.1" id="cocktail-glass" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -60,8 +59,8 @@
           karaoke bars, <br/>
           and dance clubs.
         </h3>
-      </div>
-      <div id="fold-open-late" class="fold">
+      </section>
+      <section id="open-late" class="fold">
         <svg version="1.1" id="coffee" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
           <path d="M355,409.7c8.22,3.56,17.4,5.43,26.88,5.43c31.3,0,56.76-20.56,56.76-45.82c0-23.5-22.02-42.91-50.28-45.52
@@ -86,8 +85,8 @@
             c0-17.49-5.43-34.5-15.27-48.7c26.05,7.02,45.29,30.85,45.29,59.09C357.08,121.77,329.64,149.22,295.9,149.22z"/>
         </svg>
         <h3 id="content-24-7" class="column-8-xs column-move-2-xs column-10-sm column-move-1-sm column-8-lg column-move-cancel-lg text-large">Chill coffeeshops open <strong>24/7</strong>, and restaurants that keep their doors <strong>open late.</strong></h3>
-      </div>
-      <div id="fold-neighborhoods" class="fold">
+      </section>
+      <section id="neighborhoods" class="fold">
         <div id="buildings">
           <svg version="1.1" id="buildings-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -142,8 +141,8 @@
           and exciting<br/>
           areas to explore.
         </h3>
-      </div>
-      <div id="fold-announcements" class="fold">
+      </section>
+      <section id="announcements" class="fold">
         <h3 class="column-12-xs column-9-sm column-move-1-sm column-6-lg column-move-cancel-lg text-large"><strong>Announcements</strong></h3>
         <ul class="column-12-xs column-9-sm column-move-1-sm column-6-lg column-move-cancel-lg list-posts">
   <?php $announcements = ad_get_posts_by_category( 'announcements', 5 ); if ( $announcements->have_posts() ) : while ( $announcements->have_posts() ) : $announcements->the_post(); ?>
@@ -155,10 +154,10 @@
           <li class="list-item-category-link"><a href="<?php echo esc_url( ad_get_category_link( 'announcements' ) ); ?>">See Older Announcements</a></li>
   <?php endif; wp_reset_postdata(); ?>
         </ul>
-      </div>
-      <div id="fold-contact-us" class="fold">
+      </section>
+      <footer id="contact-us" class="fold">
   <?php the_content(); ?>
-      </div>
+      </footer>
     </article>
 <?php endwhile; else : ?>
     <article class="wrapper">

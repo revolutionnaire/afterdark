@@ -1,9 +1,18 @@
 {
   "name": "After Dark",
   "version": "1.0.0",
+  "source": ["src/js/global.js", "src/js/about.js"],
+  "main": "global.js",
+  "targets": {
+    "default": {
+      "distDir": "assets/js"
+    },
+    "main": false
+  },
+  "browserslist": "> 0.25%",
   "scripts": {
-    "watch": "parcel watch src/js/main.js --out-dir .",
-    "build": "parcel build src/js/main.js --out-dir ."
+    "watch": "parcel watch",
+    "build": "parcel build"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.16",
@@ -11,6 +20,6 @@
     "navigation.js": "^1.1.1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.9.3"
   }
 }
