@@ -1,6 +1,6 @@
 http_path = "/" # Root level target path
 css_dir = "." # Targets our default style.css file at the root level of our theme
-sass_dir = "src/sass" # Targets our sass directory
+sass_dir = "src/scss" # Targets our sass directory
 
 # Set the output style to compressed
 output_style = :compressed
