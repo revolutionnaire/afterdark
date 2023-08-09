@@ -1,7 +1,10 @@
 {
   "name": "After Dark",
   "version": "1.0.0",
-  "source": ["src/js/global.js", "src/js/about.js"],
+  "source": [
+    "src/js/global.js",
+    "src/js/about.js"
+  ],
   "main": "global.js",
   "targets": {
     "default": {
@@ -11,13 +14,15 @@
   },
   "browserslist": "> 0.25%",
   "scripts": {
+    "sass": "npx sass --watch src/scss/style.scss  style.css --style=compressed",
     "watch": "parcel watch",
     "build": "parcel build"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.16",
     "gsap": "^3.12.2",
-    "navigation.js": "^1.1.1"
+    "navigation.js": "^1.1.1",
+    "sass": "^1.64.2"
   },
   "devDependencies": {
     "parcel": "^2.9.3"

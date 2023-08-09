@@ -1,5 +1,4 @@
 // Define all style related to the editors here both block and classic
-@import 'compass/css3/animation';
 @import 'variables';
 
 .wp-editor,
@@ -13,7 +12,7 @@
     &:hover {
       color: $color-action;
       border-bottom: $border-thickness solid $color-action;
-      @include animation($link-animation);
+      animation: $link-animation;
     }
   }
 }

@@ -5,6 +5,10 @@ main {
   margin-top: $navigation-height + 2 * $space-horizontal;
 }
 
+iframe {
+  border: none;
+}
+
 .wrapper {
   margin-right: $space-horizontal;
   margin-left: $space-horizontal;

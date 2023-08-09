@@ -7,6 +7,18 @@ body {
   font-kerning: auto;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  font-weight: 400;
+  margin-top: 0;
+}
+
 h1  {
   font-size:  $default-heading-size;
   margin-bottom: $space-vertical;
@@ -29,7 +41,13 @@ h6 {
 p,
 ul {
   font-size: $default-body-size;
+  margin-top: 0;
   margin-bottom: $space-vertical;
+}
+
+ul {
+  padding-inline-start: 0;
+  list-style-type: none;
 }
 
 b,

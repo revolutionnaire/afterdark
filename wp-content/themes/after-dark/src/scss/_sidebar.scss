@@ -1,7 +1,7 @@
 // Define all sidebar related styles here
 
 #sidebar {
-  @include flex-basis(calc(33.33% - (#{$space-horizontal} * 0.5)));
+ flex-basis: calc(33.33% - #{$space-horizontal} * 0.5);
 
   @include respond-above(sm) {
     margin-left: $space-horizontal * 0.5;

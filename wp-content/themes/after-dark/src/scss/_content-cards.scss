@@ -8,11 +8,9 @@
   @include respond-above(lg) {
     margin-right: 0;
     margin-left: 0;
-    @include flexbox((
-      display: flex,
-      flex-direction: row,
-      flex-wrap: wrap
-    ));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   > .content-card {
@@ -25,7 +23,7 @@
     }
 
     @include respond-above(lg) {
-      @include flex-basis(calc(50% - (#{$space-horizontal} * 0.5)));
+      flex-basis: calc(50% - #{$space-horizontal} * 0.5);
 
       // Set the gutter between content cards
       &:nth-child(odd) {
@@ -41,7 +39,7 @@
   > .content-card-message {
     margin-right: $space-horizontal;
     margin-left: $space-horizontal;
-    @include flex-basis(100%);
+    flex-basis: 100%;
 
     @include respond-above(lg) {
       margin-right: 0;

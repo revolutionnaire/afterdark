@@ -7,16 +7,14 @@
 
     > div.wrapper {
       @include respond-above(sm) {
-        @include flexbox((
-          display: flex,
-          flex-direction: row,
-          flex-wrap: wrap
-        ));
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
 
       > #content {
         margin-bottom: $space-vertical;
-        @include flex-basis(calc(66.67% - (#{$space-horizontal} * 0.5)));
+        flex-basis: calc(66.67% - #{$space-horizontal} * 0.5);
 
         @include respond-above(sm) {
           margin-right: $space-horizontal * 0.5;
@@ -27,9 +25,7 @@
     }
 
     > footer.wrapper > .social-media-links {
-      @include flexbox((
-        display: flex
-      ));
+      display: flex;
 
       > li:first-child {
         padding-right: 0;

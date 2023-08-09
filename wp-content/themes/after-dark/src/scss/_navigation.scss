@@ -9,10 +9,8 @@
     position: relative;
 
     @include respond-above(sm) {
-      @include flexbox((
-        display: flex,
-        flex-direction: row
-      ));
+      display: flex;
+      flex-direction: row;
     }
 
     > header > h1 > a > #logo,
@@ -228,7 +226,9 @@
         margin-top: 0;
         display: block;
         position: static;
-        @include flex(0);
+        flex-basis: 0;
+        flex-grow: 0;
+        flex-shrink: 0;
       }
 
       > .nav-list {
@@ -239,17 +239,17 @@
         @include respond-above(sm) {
           margin-top: 0;
           position: static;
-          @include flexbox((
-            display: flex,
-            flex-direction: row,
-          ));
+          display: flex;
+          flex-direction: row;
 
           > .menu-item {
             padding-top: 0;
             padding-right: $space-horizontal * 0.5;
             padding-bottom: $space-vertical;
             padding-left: $space-horizontal * 0.5;
-            @include flex(1);
+            flex-basis: 0;
+            flex-grow: 0;
+            flex-shrink: 0;
 
             &.current-menu-item {
               transform: scaleY(-1) translateY(50%);
@@ -296,7 +296,9 @@
 
       @include respond-above(lg) {
         display: block;
-        @include flex(3);
+        flex-basis: 3;
+        flex-grow: 3;
+        flex-shrink: 3;
       }
     }
   }

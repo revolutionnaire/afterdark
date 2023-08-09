@@ -8,10 +8,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * */
 
-// Include Compass submodules
-@import 'compass/reset';
-@import 'compass/css3/animation';
-@import 'compass/css3/flexbox';
+// Normalize Styles
+@import 'normalize';
 
 // Mixins
 @import 'respond-above';

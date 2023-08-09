@@ -1,10 +1,8 @@
 .category-card-wrapper {
   @include respond-above(sm) {
-    @include flexbox((
-      display: flex,
-      flex-direction: row,
-      flex-wrap: wrap
-    ));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   > .category-card {
@@ -21,7 +19,7 @@
     }
 
     @include respond-above(sm) {
-      @include flex-basis(calc(50% - (#{$space-horizontal} * 0.5)));
+      flex-basis: calc(50% - #{$space-horizontal} * 0.5);
 
       &:nth-child(odd) {
         margin-right: $space-horizontal * 0.5;

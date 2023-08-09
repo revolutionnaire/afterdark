@@ -2,10 +2,8 @@
 
 .breadcrumbs {
   margin-bottom: 0;
-  @include flexbox((
-    display: flex,
-    flex-direction: row,
-  ));
+  display: flex;
+  flex-direction: row;
 
   > .breadcrumbs-ancestor-category,
   > .breadcrumbs-child-category {

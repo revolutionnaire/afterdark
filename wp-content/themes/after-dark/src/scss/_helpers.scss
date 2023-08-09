@@ -141,10 +141,8 @@
 }
 
 .list-links {
-  @include flexbox((
-    display: inline-flex,
-    flex-direction: row
-  ));
+  display: inline-flex;
+  flex-direction: row;
 
   > li {
     padding-right: $space-horizontal * 0.5;

@@ -6,6 +6,6 @@ a {
 
   &:hover {
     border-bottom: $border-thickness solid $color-action;
-    @include animation($link-animation);
+    animation: $link-animation;
   }
 }
