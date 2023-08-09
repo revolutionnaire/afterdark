@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let sixthSectionIn = gsap.timeline({
     scrollTrigger: {
       trigger: '#neighborhoods',
-      start: 'top center',
+      start: 'top bottom',
       end: 'center center',
       scrub: true
     }
