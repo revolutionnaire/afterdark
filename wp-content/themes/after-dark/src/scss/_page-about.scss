@@ -3,12 +3,12 @@
 .page-about > main {
   overflow: hidden;
 
-  > .wrapper > article > .fold {
+  > .wrapper  > .fold {
     height: calc(100vh - #{$navigation-height} + 2 * #{$space-vertical});
   }
 }
 
-.page-about > main > .wrapper > article > #after-dark-adventures {
+.page-about > main > .wrapper  > #after-dark-adventures {
   > h1 {
     margin-top: 11.0915vh;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-.page-about > main > .wrapper > article > #what-will-we-write {
+.page-about > main > .wrapper  > #what-will-we-write {
   > h3 {
     margin-top: 15.3169vh;
   }
@@ -66,7 +66,7 @@
   }
 }
 
-.page-about > main > .wrapper > article > #fun-activities {
+.page-about > main > .wrapper > #fun-activities {
   position: relative;
 
   > h3 {
@@ -131,7 +131,7 @@
   }
 }
 
-.page-about > main > .wrapper > article > #local-music-venues {
+.page-about > main > .wrapper > #local-music-venues {
   > #cocktail {
     width: 254px;
     height: 254px;
@@ -169,7 +169,7 @@
   }
 }
 
-.page-about > main > .wrapper > article > #open-late {
+.page-about > main > .wrapper > #open-late {
   > #coffee {
     width: 162px;
     height: 162px;
@@ -195,7 +195,7 @@
   }
 }
 
-.page-about > main > .wrapper > article > #neighborhoods {
+.page-about > main > .wrapper > #neighborhoods {
   > #buildings {
     width: 183px;
     height: 183px;
@@ -235,8 +235,8 @@
   }
 }
 
-.page-about > main > .wrapper > article > #announcements,
-.page-about > main > .wrapper > article > #contact-us {
+.page-about > main > .wrapper > #announcements,
+.page-about > main > .wrapper > #contact-us {
   @include respond-above(lg) {
     [class*="column-"] {
       margin-left: 0;

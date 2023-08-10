@@ -3,9 +3,9 @@
 .single > main {
   padding-top: 0;
 
-  > section > article {
+  > article {
 
-    > div.wrapper {
+    > .wrapper {
       @include respond-above(sm) {
         display: flex;
         flex-direction: row;
@@ -22,21 +22,21 @@
         }
       }
 
-    }
+      > footer .social-media-links {
+        margin-top: $space-vertical;
+        display: flex;
 
-    > footer.wrapper > .social-media-links {
-      display: flex;
+        > li:first-child {
+          padding-right: 0;
+          border-right: 0;
 
-      > li:first-child {
-        padding-right: 0;
-        border-right: 0;
-
+        }
       }
     }
   }
 }
 
-.single-guide > main > section > article > .wrapper > #content {
+.single-guide > main > article > .wrapper > #content {
   > .location-wifi,
   > .location-price {
     margin-bottom: 0;

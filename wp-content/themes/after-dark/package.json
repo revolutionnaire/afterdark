@@ -14,7 +14,7 @@
   },
   "browserslist": "> 0.25%",
   "scripts": {
-    "sass": "npx sass --watch src/scss/style.scss  style.css --style=compressed",
+    "sass": "sass --watch src/scss/style.scss  style.css --style=compressed",
     "watch": "parcel watch",
     "build": "parcel build"
   },

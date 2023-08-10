@@ -1,55 +1,78 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var categoryThumbnailField = document.getElementById('image-id');
-    var categoryThumbnailPreview = document.getElementById('image-preview');
+/**
+ * Category Featured Image Form Handler
+ *
+ * @package AfterDark
+ */
 
-    // Handle image upload button click
-    document.getElementById('button-image-upload').addEventListener('click', function(event) {
-      event.preventDefault();
+document.addEventListener(
+	'DOMContentLoaded',
+	function() {
+		var categoryThumbnailField   = document.getElementById( 'image-id' );
+		var categoryThumbnailPreview = document.getElementById( 'image-preview' );
+		var currentImage             = categoryThumbnailPreview.querySelector( 'img' );
 
-      // Create the media frame
-      var mediaFrame = wp.media({
-        title: 'Select or Upload Featured Image',
-        button: {
-            text: 'Use Image'
-        },
-        multiple: false
-      });
+		// Handle image upload button click.
+		document.getElementById( 'button-image-upload' ).addEventListener(
+			'click',
+			function( event ) {
+				event.preventDefault();
 
-      // Handle image selection
-      mediaFrame.on('select', function() {
-        var attachment = mediaFrame.state().get('selection').first().toJSON();
-        var image = document.createElement('img');
-        image.src = attachment.url;
-        image.alt = attachment.alt;
+				// Create the media frame.
+				var mediaFrame = wp.media(
+					{
+						title: 'Select or Upload Featured Image',
+						button: {
+							text: 'Use Image'
+						},
+						multiple: false
+					}
+				);
 
-        // Check if image already exists and remove it
-        if (categoryThumbnailPreview.querySelector('img') != null)
-          categoryThumbnailPreview.querySelector('img').remove();
+				// Handle image selection.
+				mediaFrame.on(
+					'select',
+					function() {
+						var attachment = mediaFrame.state().get( 'selection' ).first().toJSON();
+						var newImage   = document.createElement( 'img' );
+						newImage.src   = attachment.url;
+						newImage.alt   = attachment.alt;
 
-        // Set the selected image ID and preview
-        categoryThumbnailField.value = attachment.id;
-        categoryThumbnailPreview.appendChild(image);
-        categoryThumbnailPreview.classList.remove('bg-white');
+						// Check if image already exists and remove it.
+						if ( currentImage != null ) {
+							currentImage.remove();
+							currentImage = null;
+						}
 
-        // Rename Upload button
-        document.getElementById('button-image-upload').innerHTML = 'Change Image';
-      });
+						// Set the selected image ID and preview.
+						categoryThumbnailField.value = attachment.id;
+						categoryThumbnailPreview.appendChild( newImage );
+						categoryThumbnailPreview.classList.remove( 'bg-white' );
 
-      // Open the media frame
-      mediaFrame.open();
-    });
+						// Rename Upload button.
+						document.getElementById( 'button-image-upload' ).innerHTML = 'Change Image';
+					}
+				);
 
-  // Handle image remove button click
-  document.getElementById('button-image-remove').addEventListener('click', function(event) {
-    event.preventDefault();
+				// Open the media frame.
+				mediaFrame.open();
+			}
+		);
 
-    // Clear the selected image ID and style preview
-    categoryThumbnailField.value = '';
-    categoryThumbnailPreview.querySelector('img').remove();
-    categoryThumbnailPreview.style.height = 'auto';
-    categoryThumbnailPreview.classList.add('bg-white');
+		// Handle image remove button click.
+		document.getElementById( 'button-image-remove' ).addEventListener(
+			'click',
+			function( event ) {
+				event.preventDefault();
 
-    // Change the Upload button's text
-    document.getElementById('button-image-upload').innerHTML = 'Upload Image';
-  });
-});
+				// Clear the selected image ID and style preview.
+				categoryThumbnailField.value = '';
+				categoryThumbnailPreview.querySelector( 'img' ).remove();
+				categoryThumbnailPreview.style.height = 'auto';
+				categoryThumbnailPreview.classList.add( 'bg-white' );
+
+				// Change the Upload button's text.
+				document.getElementById( 'button-image-upload' ).innerHTML = 'Upload Image';
+			}
+		);
+	}
+);

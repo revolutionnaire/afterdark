@@ -1,6 +1,14 @@
 <?php
-// Include custom functions and classes
-require_once get_template_directory() . '/includes/nav-walker-menu.php';
+/**
+ * ------------------------------------------------------------------------
+ * Theme's Functions and Filters
+ * ------------------------------------------------------------------------
+ *
+ * @package AfterDark
+ */
+
+// Include custom functions and classes.
+require_once get_template_directory() . '/includes/class-ad-walker-nav-menu.php';
 require_once get_template_directory() . '/includes/login.php';
 require_once get_template_directory() . '/includes/head.php';
 require_once get_template_directory() . '/includes/body.php';
@@ -13,11 +21,11 @@ require_once get_template_directory() . '/includes/single.php';
 require_once get_template_directory() . '/includes/sidebar.php';
 require_once get_template_directory() . '/includes/footer.php';
 
-// Support featured images for posts
+// Support featured images for posts.
 add_theme_support( 'editor-style' );
 add_theme_support( 'post-thumbnails' );
 
-// Hook functions and filters
+// Hook functions and filters.
 add_action( 'init', 'ad_add_main_navigation' );
 add_action( 'init', 'ad_add_footer_navigation' );
 add_filter( 'wp_nav_menu_args', 'ad_nav_menu_walker' );

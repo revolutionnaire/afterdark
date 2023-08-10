@@ -1,40 +1,41 @@
 #addtag >  #image-preview,
 #edittag  #image-preview {
-  width: 94.9%;
-  min-height: 276px;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  border-radius: 4px;
-  position: relative;
+	width: 94.9%;
+	min-height: 276px;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	border-radius: 4px;
+	overflow: hidden;
+	position: relative;
 }
 
 #addtag >  #image-preview {
-  min-height: 162px;
+	min-height: 162px;
 }
 
 #addtag >  #image-preview.bg-white,
 #edittag  #image-preview.bg-white {
-  background-color: #FFF;
+	background-color: #FFF;
 }
 
 #addtag >  #image-preview > img,
 #edittag  #image-preview > img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 #addtag > #image-preview label,
 #edittag #image-preview label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 #addtag > #image-preview:has(img) label,
 #edittag #image-preview:has(img) label {
-  display: none;
+	display: none;
 }
 
 #addtag > .description {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
