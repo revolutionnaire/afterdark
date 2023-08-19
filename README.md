@@ -3,32 +3,84 @@ Around After Dark
 
 A WordPress site for travel and food after the sun sets.
 
-#### Setup Local Environment
-Install PHP 7.4, Composer, and MySQL to your system first.
+Setup Local Environment
+-----------------------
 
-Run MySQL by typing `brew services start mysql`.
+1. Install PHP 7.4, Composer, and MySQL to your system first.
 
-Type `mysql -u root` to run the MySQL prompt.
+2. Run the background service of MySQL.
 
-Type `CREATE DATABASE aroundafterdark;` in the MySQL prompt to create a database for WordPress.
+```
+brew services start mysql
+```
 
-Type `SHOW DATABASES;` to check if your database was successfully created.
+3. Run the MySQL prompt.
 
-Go to the theme folder `wp-content/themes/after-dark` and type `npm install` to install all the dependencies. Then run `npm run sass` to automate rebuilding of the `style.css` of the site's theme.
+```
+mysql -u root
+```
 
-In the theme folder, type  `npm run build` update the About page template's JS file. You can also run `npm run watch` to automate the rebuilding.
+4. Create the database for WordPress.
 
-Type `php -S localhost:8000` to start.
+```
+CREATE DATABASE aroundafterdark;
+```
 
-Setup WordPress database by going to `localhost:8000` on your browser. Follow the instructions carefully.
+5. Check if your database was successfully created.
 
-Install PHP_CodeSniffer by running `composer global require "squizlabs/php_codesniffer=*"`.
+```
+SHOW DATABASES;
+```
 
-Install the WordPress Coding Standard along with the PHP_CodeSniffer Composer Installer: type `composer global require wp-coding-standards/wpcs dealerdirect/phpcodesniffer-composer-installer`.
+6. Go to the theme folder `wp-content/themes/after-dark` and install the theme dependencies. You can view the list of dependencies in `package.json` located in the theme's folder.
 
-Check if the WordPress Coding Standard was added to PHP_CodeSniffer by typing `phpcs -i`.
+```
+npm install
+```
 
-You can check your code by typing `phpcs --standard=WordPress path/to/file`.
+7. Run Sass to automate compiling of the theme's style.
+
+```
+npm run sass
+```
+
+8. Run Parcel to automate rebuilding of the theme's JavaScript files.
+
+```
+npm run watch
+```
+
+9. Run the PHP server.
+
+```
+php -S localhost:8000
+```
+
+10. Install PHP_CodeSniffer using Composer.
+
+```
+composer global require "squizlabs/php_codesniffer=*"
+```
+
+11. Install the PHP_CodeSniffer Composer Installer along with the WordPress Coding Standard.
+
+```
+composer global require wp-coding-standards/wpcs dealerdirect/phpcodesniffer-composer-installer
+```
+
+12. Check if the WordPress Coding Standard was added to PHP_CodeSniffer. ``.
+
+```
+phpcs -i
+```
+
+13. Setup WordPress database by going to `localhost:8000` on your browser. Follow the instructions carefully.
+
+14. You can check your codes if they follow WordPress Coding Conventions.
+
+```
+phpcs --standard=WordPress path/to/file
+```
 
 #### License
 This page is published under [**GNU General Public License**](/LICENSE)
