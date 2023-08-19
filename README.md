@@ -82,5 +82,11 @@ phpcs -i
 phpcs --standard=WordPress path/to/file
 ```
 
+15. Don't forget to compress the JavaScript files before you push any changes to the remote repository.
+
+```
+npm run build
+```
+
 #### License
 This page is published under [**GNU General Public License**](/LICENSE)
