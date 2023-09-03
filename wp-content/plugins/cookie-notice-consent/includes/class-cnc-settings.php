@@ -102,7 +102,7 @@ class Cookie_Notice_Consent_Settings {
 	 */
 	private function render_settings_field_text( $group, $name, $description = '' ) {
 		?>
-		<input type="text" name="cookie_notice_consent_<?php echo $group; ?>[<?php echo $name; ?>]" id="cookie_notice_consent_<?php echo $group; ?>[<?php echo $name; ?>]" value="<?php echo $this->get_option( $group, $name ); ?>" class="regular-text">
+		<input type="text" name="cookie_notice_consent_<?php echo $group; ?>[<?php echo $name; ?>]" id="cookie_notice_consent_<?php echo $group; ?>[<?php echo $name; ?>]" value="<?php echo esc_html( $this->get_option( $group, $name ) ); ?>" class="regular-text">
 		<?php
 		if( !empty( $description ) ) {
 		?>

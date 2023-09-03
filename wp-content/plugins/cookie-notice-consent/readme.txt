@@ -3,8 +3,8 @@ Contributors: christophrado
 Donate link: https://www.paypal.me/christophrado
 Tags: cookie, consent, compliance, gdpr, dsgvo
 Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 1.6.0
+Tested up to: 6.3
+Stable tag: 1.6.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -75,6 +75,10 @@ If this plugin does not meet your legal requirements, I encourage you not to use
 5. Consent logs and basic consent statistics per category
 
 == Changelog ==
+
+= 1.6.1 =
+* Fixed: XSS vulnerability (non-escaped settings field values; only Administrator affected; disclosed by Patchstack)
+* Tested up to 6.3
 
 = 1.6.0 =
 * Note: If you run your own design, please note that this release adds a new element to the notice banner
