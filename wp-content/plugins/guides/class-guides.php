@@ -207,7 +207,7 @@ class Guides {
 			// Append the locations to the content.
 			if ( ! empty( $locations ) ) :
 				foreach ( $locations as $location ) :
-					$content .= '<h3 class="location-name">' . esc_html( $location['name'] ) . '</h3>';
+					$content .= '<h4 class="location-name">' . esc_html( $location['name'] ) . '</h4>';
 					$content .= wp_kses_post( do_shortcode( $location['description'] ) );
 					$content .= '<ul class="location-details">';
 					$content .= '<li class="location-wifi">Wi-Fi is <b>';

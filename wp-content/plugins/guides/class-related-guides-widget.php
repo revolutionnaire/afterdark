@@ -60,7 +60,7 @@ class Related_Guides_Widget extends WP_Widget {
 
   				if ( $posts_query->have_posts() ) :
 					echo wp_kses_post( $args['before_widget'] );
-					echo wp_kses_post( $args['before_title'] ) . esc_html( 'Other Guides About ' ) . esc_html( $first_child_category->name ) . wp_kses_post( $args['after_title'] );
+					echo wp_kses_post( $args['before_title'] ) . esc_html( 'Related Guides ' ) . wp_kses_post( $args['after_title'] );
 
 					while ( $posts_query->have_posts() ) :
 						$posts_query->the_post();
@@ -77,9 +77,8 @@ class Related_Guides_Widget extends WP_Widget {
 							);
 							echo wp_kses_post( '</figure>' );
 						endif;
-						echo wp_kses_post( '<div class="wrapper">' );
-						echo wp_kses_post( '<p class="text-center">' . esc_html( get_the_title() ) . '</p>' );
-						echo wp_kses_post( '<p class="text-center"><a href="' . esc_url( get_permalink() ) . '">Read now</a>&nbsp;&#8250;</p>' );
+						echo wp_kses_post( '<h3>' . esc_html( get_the_title() ) . '</h3>' );
+						echo wp_kses_post( '<a class="button button-foreground" href="' . esc_url( get_permalink() ) . '">Read now&nbsp;&#8250;</a>' );
 						echo wp_kses_post( '</header>' );
 						echo wp_kses_post( '</article>' );
 					endwhile;
