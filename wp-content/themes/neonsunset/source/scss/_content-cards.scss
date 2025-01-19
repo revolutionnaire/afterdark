@@ -1,0 +1,126 @@
+// Define all styles related to the content card and contributor card component
+
+// Use Flexbox on non-featured contents
+
+// Setup content cards when they're wrapped in a wrapper
+.content-card-wrapper {
+
+  @include respond-above(sm) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+		justify-content: space-between;
+		gap: $space-vertical $space-horizontal;
+  }
+
+	> .contributor-card {
+		margin-bottom: $space-vertical;
+
+		@include respond-above(sm) {
+			margin-bottom: 0;
+			flex-basis: 100%;
+		}
+
+		@include respond-above(lg) {
+			flex-basis: calc(46.5% - $space-horizontal);
+		}
+	}
+
+	> .contributor-card ~ .content-card:nth-child(2) {
+
+		@include respond-above(sm) {
+			flex-basis: 100%;
+		}
+
+		@include respond-above(lg) {
+			flex-basis: calc(50.5% - $space-horizontal);
+		}
+	}
+
+  > .content-card {
+		margin-bottom: $space-vertical;
+
+		@include respond-above(sm) {
+			margin-bottom: 0;
+      flex-basis: calc(50% - $space-horizontal * 0.5);
+		}
+  }
+
+  > .content-card-message {
+    flex-basis: 100%;
+		gap: 0;
+  }
+}
+
+// Content card styles
+.content-card {
+
+  > header {
+    > .featured-image-container {
+      width: 100%;
+      height: 240px;
+      border-bottom: 0;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+  	> .wrapper {
+			margin-right: 0;
+			margin-left: 0;
+
+			> h2 {
+      		margin-top: $space-vertical * 0.5;
+      		margin-bottom: $space-vertical * 0.5;
+    	}
+		}
+  }
+}
+
+.content-card-featured {
+  background-color: $color-secondary;
+	padding-bottom: $space-vertical * 0.5;
+	margin-bottom: $space-vertical;
+
+  > header {
+    > .featured-image-container {
+      height: 240px;
+      margin-right: 0;
+      margin-left: 0;
+
+      @include respond-above(sm) {
+        height: 320px;
+      }
+    }
+
+		> .wrapper {
+			margin-right: $space-horizontal;
+			margin-left: $space-horizontal;
+
+			@include respond-above(sm) {
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			h2 {
+				color: $color-accent;
+			}
+		}
+  }
+}
+
+.contributor-card {
+	padding: $space-vertical $space-horizontal;
+	border: 3px solid $color-foreground;
+	border-radius: $border-radius;
+
+	.avatar {
+		border-radius: 48px;
+		margin-bottom: $space-vertical;
+	}
+
+  h1 {
+    font-family: $default-title-font;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,59 @@
+// Define all styles for the footer here
+
+body > footer {
+	background-color: $color-primary;
+	color: $color-foreground;
+	padding: $space-vertical $space-horizontal;
+
+  > .wrapper {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: $space-vertical $space-horizontal;
+
+		#sitemap {
+			flex-basis: 100%;
+
+			@include respond-above (sm) {
+				flex-basis: 80%;
+			}
+
+			.menu-item > a {
+				color: $color-foreground;
+			}
+		}
+
+		#social-media {
+			flex-basis: 100%;
+
+			@include respond-above(sm) {
+				flex-basis: calc(20% - $space-horizontal);
+				text-align: right;
+			}
+
+			a:hover {
+				text-decoration: none;
+			}
+
+			circle,
+			path {
+				fill: $color-foreground;
+			}
+
+			#instagram {
+				width: 48px;
+				height: 48px;
+			}
+
+			#mastodon {
+				width: 42px;
+				height: 48px;
+			}
+		}
+
+    > #colophon {
+      font-size: $default-byline-size;
+			flex-basis: 100%;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+// Define all override styles to the Cookie Notice & Consent plugin here
+
+.cookie-notice-consent {
+  background-color: $color-background;
+  color: $color-foreground;
+}
+
+.cookie-notice-consent__button {
+  border-color: $color-secondary;
+  border-radius: 0;
+}
+
+.cookie-notice-consent__button:focus,
+.cookie-notice-consent__button:hover {
+  color: $color-action;
+  border-color: $color-action;
+}

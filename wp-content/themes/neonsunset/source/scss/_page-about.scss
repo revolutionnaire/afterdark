@@ -1,0 +1,82 @@
+// Define all related styles for the About page
+
+.page-about {
+	article {
+		@include respond-above(sm) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: $space-vertical $space-horizontal;
+		}
+
+		header {
+			flex-basis: 100%;
+
+			h3 {
+				background: center no-repeat url('assets/images/igor-kasalovic-tNDvFkxkBHo-unsplash.jpg');
+				background-clip: text;
+				color: transparent;
+				font-family: $default-title-font;
+				font-size: 80px;
+				font-weight: 400;
+				word-break: break-all;
+
+				@include respond-above(sm) {
+					font-size: 160px;
+				}
+
+				@include respond-above(lg) {
+					font-size: 240px;
+				}
+			}
+		}
+
+  	#content {
+			@include respond-above(sm) {
+      	flex-basis: calc(50% - $space-horizontal);
+			}
+
+			@include respond-above(lg) {
+				flex-basis: calc(66.667% - $space-horizontal);
+			}
+  	}
+
+		#sidebar {
+
+			@include respond-above(sm) {
+				flex-basis: calc(50% - $space-horizontal);
+			}
+
+			@include respond-above(lg) {
+				flex-basis: calc(33.33% - $space-horizontal);
+			}
+
+			> .widget_block {
+				margin-top: 0;
+				margin-bottom: $space-vertical;
+
+				@include respond-above(sm) {
+					border-color: $color-foreground;
+				}
+
+				p:last-child {
+					margin-bottom: 0;
+				}
+
+				.wp-block-heading {
+					font-family: $default-title-font;
+					font-size: $default-title-size;
+					font-weight: 400;
+				}
+
+				.has-text-align-center {
+					text-align: left;
+
+					@include respond-above(sm) {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

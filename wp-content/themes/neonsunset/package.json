@@ -1,0 +1,26 @@
+{
+  "name": "After Dark",
+  "version": "1.0.0",
+  "source": [
+    "source/js/global.js"
+  ],
+  "main": "global.js",
+  "targets": {
+    "default": {
+      "distDir": "assets/js"
+    },
+    "main": false
+  },
+  "browserslist": "> 0.25%",
+  "scripts": {
+    "sass": "sass --watch source/scss/style.scss  style.css --style=compressed",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "navigation.js": "^1.1.1",
+    "sass": "^1.64.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}

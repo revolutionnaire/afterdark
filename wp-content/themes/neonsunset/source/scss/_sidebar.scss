@@ -1,0 +1,81 @@
+// Define all sidebar related styles here
+
+#sidebar {
+	@include respond-above(sm) {
+		flex-basis: calc(44% - $space-horizontal)
+	}
+
+	@include respond-above (lg) {
+ 	 flex-basis: calc(33.33% - $space-horizontal);
+  }
+
+	.widget {
+		margin-right: -$space-horizontal;
+		margin-left: -$space-horizontal;
+
+		@include respond-above(sm) {
+			border-radius: $border-radius;
+			margin-right: 0;
+			margin-left: 0;
+		}
+	}
+
+	.widget-title {
+		font-family: $default-title-font;
+		font-size: $default-title-size;
+		font-weight: 400;
+		margin-bottom: $space-vertical * 0.5;
+	}
+
+  > .widget_related_guides_widget {
+		background: linear-gradient(180deg, $color-primary 0%, $color-action 100%);
+		color: $color-foreground;
+		padding: $space-vertical $space-horizontal;
+		margin-bottom: $space-vertical;
+
+		> .content-card > header {
+
+    	@include respond-above(sm) {
+      	margin-right: 0;
+      	margin-left: 0;
+    	}
+
+    	> .featured-image-container {
+      	height: 200px;
+
+      	@include respond-above(sm) {
+        	height: 124px;
+      	}
+
+      	@include respond-above(lg) {
+        	height: 200px;
+      	}
+    	}
+
+    	> h3 {
+      	font-size: $default-heading-size;
+      	font-weight: $default-black-weight;
+    	}
+
+			.button {
+				margin-top: $space-vertical * 0.5;
+			}
+		}
+  }
+
+  > .widget_block {
+		padding: $space-vertical $space-horizontal;
+
+		@include respond-above(sm) {
+			border: 3px solid $color-background;
+		}
+
+		li {
+			font-size: $default-heading-size;
+
+    	&:first-child {
+      	margin-top: 0;
+    	}
+  	}
+	}
+}

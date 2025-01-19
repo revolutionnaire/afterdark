@@ -1,0 +1,79 @@
+// Define all styles for posts and other custom posts here
+
+.single {
+	background-color: $color-foreground;
+	color: $color-background;
+
+	> main {
+  	padding-top: 0;
+
+  	> article {
+
+    	> .wrapper {
+      	@include respond-above(sm) {
+        	display: flex;
+        	flex-direction: row;
+        	flex-wrap: wrap;
+					gap: $space-vertical $space-horizontal;
+      	}
+
+				h1 {
+					color: $color-accent;
+				}
+
+				.byline {
+					list-style-type: none;
+
+					> li {
+						font-size: $default-byline-size;
+					}
+				}
+
+      	> #content {
+					@include respond-above(sm) {
+        		flex-basis: calc(44% - $space-horizontal);
+					}
+
+					@include respond-above(lg) {
+						flex-basis: calc(66.667% - $space-horizontal);
+					}
+      	}
+
+      	> footer {
+					flex-basis: 100%;
+
+					.social-media-links {
+        		display: flex;
+
+						> li {
+							border-color: $color-background;
+						}
+					}
+      	}
+    	}
+  	}
+	}
+}
+
+.single-guide > main > article > .wrapper > #content {
+  > .location-wifi,
+  > .location-price {
+    margin-bottom: 0;
+  }
+
+  > iframe[src^="https://www.google.com/maps/"] {
+    width: 100%;
+    height: 300px;
+    margin-bottom: $space-vertical * 2;
+    display: block;
+
+    @include respond-above(sm) {
+      width: 400px;
+    }
+  }
+}
+
+// Check if there's no featured image and adjust top margin to give space between navigation bar and content
+.single > main:not(:has(.featured-image-container)) {
+	margin-top: $navigation-height + $space-vertical * 3;
+}

@@ -1,0 +1,54 @@
+// Define all variables for the theme here
+
+// Breakpoints
+$breakpoints: (
+  xs: (width: 320px, gutter: 6px), // iPhone 5s
+  sm: (width: 768px, gutter: 20px), // iPad Mini 8.3 portrait mode
+  md: (width: 820px, gutter: 20px), // iPad Air portrait mode
+  lg: (width: 1024px, gutter: 20px), // iPad Mini 8.3 landscape mode
+  xl: (width: 1440px, gutter: 20px) // Desktops
+);
+
+// Typography
+$default-font: 'Inter', sans-serif;
+$default-title-font: 'Oi', serif;
+$default-semi-bold-weight: 600;
+$default-bold-weight: 700;
+$default-black-weight: 900;
+$default-title-size: 36px;
+$default-heading-size: 32px;
+$default-byline-size: 12px;
+$default-body-size: 16px;
+$default-action-size: 24px;
+
+// Color
+$color-foreground: #F3EDF5;
+$color-primary: #5A25BE;
+$color-secondary: #C7C4CC;
+$color-accent: #5A25BE;
+$color-action: #F44C33;
+$color-background: #302C33;
+
+// Whitespaces
+$space-vertical: 24px;
+$space-horizontal: 20px;
+
+// Border
+$border-radius: 16px;
+
+// Containers
+$wrapper-width: 984px;
+
+// Navigation
+$navigation-height: 24px;
+
+// Animation
+$navigation-animation: height 0.5s ease-in, top 0.25s ease-out, position 0.25s ease-out, opacity 0.2s ease-in;
+$navigation-logo-animation: fill 0.25s ease-in;
+$navigation-menu-item-animation: opacity 0.25s ease-in;
+$navigation-hamburger-animation: transform 0.25s ease-in;
+$navigation-hamburger-middle-bar-animation: opacity 0.2s ease-in;
+
+// WordPress Admin bar
+$wordpress-adminbar-height-mobile: 46px;
+$wordpress-adminbar-height-desktop: 32px;

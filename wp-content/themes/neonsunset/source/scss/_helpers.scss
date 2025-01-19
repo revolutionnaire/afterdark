@@ -1,0 +1,107 @@
+// Define all utility classes here
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.text-emphasis,
+.text-data {
+  font-weight: $default-bold-weight;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.image-center-fit {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.list-links {
+  display: inline-flex;
+  flex-direction: row;
+
+  > li {
+    padding-right: $space-horizontal * 0.5;
+    padding-left: $space-horizontal * 0.5;
+    border-right: 1px solid $color-foreground;
+
+    &:first-child {
+      padding-left: 0;
+			border-right: none;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+}
+
+.list-posts > li {
+  margin-top: $space-vertical * 2;
+  margin-bottom: $space-vertical * 2;
+
+  &.list-item-post > a {
+    color: $color-foreground;
+
+    &:hover {
+      color: $color-action;
+    }
+  }
+
+  &.list-item-post::after,
+  &.list-item-category-link::after {
+    content: url('assets/images/right-arrow-black.svg');
+    vertical-align: middle;
+    margin-left: $space-horizontal;
+  }
+}
+
+.input-text {
+  font-size: $default-body-size;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+
+  &::placeholder {
+    color: $color-secondary;
+    transition: color 0.25s ease-in;
+  }
+
+  &:active,
+  &:focus-visible {
+    outline: none;
+
+    &::placeholder {
+      color: $color-foreground;
+      transition: color 0.25s ease-in;
+    }
+  }
+}

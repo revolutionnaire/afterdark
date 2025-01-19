@@ -1,0 +1,22 @@
+// Define styles for breadcrumbs here
+
+.breadcrumbs {
+	width: 100%;
+	font-size: $default-body-size;
+	font-weight: 400;
+  margin-bottom: 0;
+}
+
+.breadcrumbs-bar {
+  background-color: $color-secondary;
+  padding: $space-vertical 0 ($space-vertical * 0.5);
+  margin-top: $navigation-height + 2 * $space-horizontal;
+
+	.breadcrumbs {
+		color: $color-accent;
+  	font-family: $default-title-font;
+  	font-size: $default-title-size;
+		font-weight: 400;
+		word-break: break-all;
+	}
+}

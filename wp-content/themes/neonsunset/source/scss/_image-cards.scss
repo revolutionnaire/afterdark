@@ -1,0 +1,25 @@
+// Define styles for title cards here
+
+.image-card {
+  > .featured-image-container {
+    width: 100%;
+    height: calc(320px + $default-body-size + $space-vertical);
+    position: relative;
+    overflow: hidden;
+
+    @include respond-above(md) {
+      height: 420px;
+    }
+
+    > figcaption {
+      width: 100%;
+			background-color: $color-foreground;
+			font-size: $default-byline-size;
+      padding-top: $space-vertical * 0.5;
+      padding-bottom: $space-vertical * 0.5;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

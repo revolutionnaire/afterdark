@@ -1,0 +1,237 @@
+// Define all .menu-main-menu-containerigation bar related styles here
+
+// Setup basic structure of navigation and toggling of menu on mobile phones
+#navigation {
+  width: 100%;
+  height: $navigation-height;
+  padding: $space-horizontal 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  transition: $navigation-animation;
+
+	> .background {
+		width: 100vw;
+		height: 100vh;
+		background: linear-gradient(180deg, $color-primary 0%, $color-action 100%);
+		position: absolute;
+		top: 0;
+	}
+
+  > .wrapper {
+		display: flex;
+    position: relative;
+
+    @include respond-above(sm) {
+      display: flex;
+      flex-direction: row;
+			gap: $space-horizontal;
+		}
+	}
+
+	header {
+    width: 24px;
+    padding-right: $space-horizontal * 0.5;
+
+    h1,
+    h2 {
+      margin-bottom: 0;
+
+      > a {
+        width: 24px;
+        height: 24px;
+        padding-bottom: 0;
+        overflow: hidden;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        > #logo {
+					width: 24px;
+          height: 24px;
+					vertical-align: top;
+        }
+      }
+    }
+	}
+
+	#search {
+  	display: none;
+
+		@include respond-above(lg) {
+			display: block;
+		}
+	}
+
+	.menu-main-menu-container {
+  	position: absolute;
+  	top: $navigation-height + $space-vertical;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+
+		@include respond-above(sm) {
+			display: flex;
+			gap: 0 $space-horizontal * 0.5;
+			position: static;
+		}
+
+  	// Hide Search on iPad portrait mode and desktops
+  	@include respond-above(lg) {
+    	.menu-item-search {
+      	display: none;
+    	}
+  	}
+
+		> .menu-item {
+			opacity: 0;
+    	transition: $navigation-menu-item-animation;
+
+			@include respond-above(sm) {
+				opacity: 1;
+			}
+		}
+	}
+
+	#down {
+		height: 24px;
+		margin-left: auto;
+		position: relative;
+		right: -20px;
+		transition: transform 0.3s ease-in;
+
+		@include respond-above(sm) {
+			display: none;
+		}
+
+		path {
+			fill: $color-foreground;
+		}
+	}
+
+  // Navigation bar toggling and element visibility on different screens
+  &.show {
+    height: 100vh;
+    transition: $navigation-animation;
+
+    > .wrapper {
+      height: 100vh;
+      transition: $navigation-animation;
+
+      > .menu-main-menu-container {
+
+				> .menu-item {
+					opacity: 1;
+
+					@include respond-above (sm) {
+						opacity: 1;
+					}
+
+        	@for $i from 1 to 4 {
+          	&:nth-child(#{$i}) {
+            	transition-delay: (4 - $i) * 0.01s;
+          	}
+        	}
+      	}
+			}
+
+      > #down {
+				transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Style descendants of navigation
+#navigation header {
+
+	path {
+		fill: $color-foreground;
+		transition: $navigation-logo-animation;
+	}
+
+	> h1 > a,
+  > h2 > a {
+  	&:hover path,
+  	&:active path {
+			fill: $color-action;
+		}
+	}
+}
+
+#navigation #search {
+  flex-grow: 3;
+  flex-shrink: 3;
+
+  > .input-text[type="search"] {
+    width: 100%;
+		background-color: transparent;
+		color: $color-foreground;
+    font-size: $default-action-size;
+    position: relative;
+
+		&::-webkit-input-placeholder,
+		&::-moz-placeholder,
+		&::-ms-input-placeholder,
+		&::placeholder {
+			color: $color-secondary;
+		}
+  }
+
+	// Fade menu when the search bar is in focus
+  &:has(.input-text:active) ~ .menu-main-menu-container,
+  &:has(.input-text:focus-visible) ~ .menu-main-menu-container {
+    opacity: 0.10;
+
+    .menu-item > a:hover {
+      color: $color-foreground;
+    }
+  }
+}
+
+#navigation .menu-main-menu-container {
+
+  @include respond-above(sm) {
+    margin-top: 0;
+		margin-left: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: static;
+    opacity: 1;
+  }
+
+	> .menu-item > a {
+		color: $color-foreground;
+
+    &:hover,
+    &:active {
+      color: $color-action;
+			text-decoration: none;
+    }
+
+		> h3 {
+			font-weight: 400;
+		}
+  }
+}
+
+// Move the navigation below the WordPress navigation bar when user is logged in
+.logged-in > #navigation {
+  top: $wordpress-adminbar-height-mobile;
+
+  // Move to the top of the viewport because the WordPress admin bar is scrolled out
+  &.scrolling {
+    top: 0;
+  }
+
+  @include respond-above(md) {
+    top: $wordpress-adminbar-height-desktop;
+  }
+
+  @include respond-above(lg) {
+    top: $wordpress-adminbar-height-desktop;
+  }
+}

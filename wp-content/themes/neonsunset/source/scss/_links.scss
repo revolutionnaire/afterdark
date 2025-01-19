@@ -1,0 +1,11 @@
+// Define all anchor tag related styles here
+
+a {
+  color: $color-action;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+		transition: color 0.3s ease-in;
+  }
+}

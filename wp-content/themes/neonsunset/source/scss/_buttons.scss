@@ -1,0 +1,20 @@
+// Define all button related styles here
+
+button,
+.button {
+	font-size: $default-action-size;
+	font-weight: $default-semi-bold-weight;
+	padding: 16px;
+	border: 3px solid $color-action;
+	border-radius: $default-body-size;
+	display: inline-block;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&.button-foreground {
+		color: $color-foreground;
+		border-color: $color-foreground;
+	}
+}
