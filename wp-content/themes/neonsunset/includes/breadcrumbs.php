@@ -56,7 +56,7 @@ function ns_categories_as_breadcrumbs( $id, $bar = false ) {
 				if ( is_single() ) :
 					echo '<a class="breadcrumbs-ancestor-category" href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>&nbsp;&#8250;&nbsp;';
 				else :
-					echo '<span class="breadcrumbs-ancestor-category text-emphasis">' . esc_html( $category->name ) . '</span>';
+					echo '<span class="breadcrumbs-ancestor-category">' . esc_html( $category->name ) . '</span>';
 				endif;
 			endif;
 
