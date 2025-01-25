@@ -10,18 +10,20 @@
 get_header();
 ?>
 	<main>
-<?php
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-		?>
+	<?php
+	if ( have_posts() ) :
+		while ( have_posts() ) :
+			the_post();
+			?>
 	<article>
 		<?php ( has_post_thumbnail( $post->ID ) ) ? get_template_part( 'parts/image-card', 'image-card' ) : null;  ?>
 		<div class="wrapper">
 			<section id="content">
 				<h1><?php the_title(); ?></h1>
 				<ul class="byline">
+				<?php if ( $post->post_type == 'guide' ) : ?>
 					<li>Written by <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a></li>
+				<?php endif; ?>
 					<li>Published on <?php the_date(); ?></li>
 				</ul>
 				<?php the_content(); ?>
@@ -34,12 +36,12 @@ if ( have_posts() ) :
 		</div>
 	</article>
 		<?php
-	endwhile;
-else :
+		endwhile;
+	else :
 	?>
 	<article class="wrapper">
 		<h2>Sorry, no post was found!</h2>
 	</article>
-<?php endif; ?>
+	<?php endif; ?>
 </main>
 <?php get_footer(); ?>
