@@ -7,12 +7,8 @@
  * @package NeonSunset
  */
 
-?>
-<?php get_header(); ?>
-<?php
-if ( is_category() ) :
-	ns_categories_as_breadcrumbs( $cat, true );
-endif;
+get_header();
+( is_category() ) ? ns_categories_as_breadcrumbs( $cat, true ) : null;
 ?>
 	<main class="wrapper">
 		<div class="content-card-wrapper">
