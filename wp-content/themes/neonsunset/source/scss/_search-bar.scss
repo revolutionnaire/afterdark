@@ -17,10 +17,11 @@
     > .input-text {
       width: 100%;
       background-color: $color-secondary;
+			color: $color-accent;
       font-size: $default-heading-size;
 
       &::placeholder {
-        color: $color-foreground;
+        color: $color-accent;
         font-weight: $default-semi-bold-weight;
       }
     }
