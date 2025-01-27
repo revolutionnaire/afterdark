@@ -55,11 +55,23 @@
 	}
 }
 
-.single-guide > main > article > .wrapper > #content {
-  > .location-wifi,
-  > .location-price {
-    margin-bottom: 0;
-  }
+.single-guide #content {
+	.location-details {
+		width: 100%;
+		color: $color-accent;
+		padding: $space-vertical $space-horizontal;
+		border: 3px solid $color-accent;
+		border-radius: $border-radius;
+
+		@include respond-above(lg) {
+			width: 66.67%;
+		}
+
+  	> .location-wifi,
+  	> .location-price {
+    	margin-bottom: 0;
+  	}
+	}
 
   > iframe[src^="https://www.google.com/maps/"] {
     width: 100%;
