@@ -8,11 +8,13 @@
 
   > .category-card {
     height: 240px;
+    margin-bottom: $space-vertical;
     overflow: hidden;
     position: relative;
 
     @include respond-above(sm) {
       flex-basis: calc(50% - #{$space-horizontal});
+      margin-bottom: auto;
     }
 
     header {
