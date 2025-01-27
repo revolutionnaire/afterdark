@@ -15,7 +15,7 @@
 	> .background {
 		width: 100vw;
 		height: 100vh;
-		background: linear-gradient(180deg, $color-primary 0%, $color-action 100%);
+		background: linear-gradient(180deg, $color-accent 0%, $color-action 100%);
 		position: absolute;
 		top: 0;
 	}
@@ -216,6 +216,14 @@
 			font-weight: 400;
 		}
   }
+
+	> .current_page_item > a {
+		color: rgba($color-secondary, 0.5);
+
+		&:hover {
+			color: rgba($color-secondary, 0.5);
+		}
+	}
 }
 
 // Move the navigation below the WordPress navigation bar when user is logged in
