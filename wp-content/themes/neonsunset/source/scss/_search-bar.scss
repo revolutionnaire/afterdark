@@ -24,6 +24,11 @@
         color: $color-accent;
         font-weight: $default-semi-bold-weight;
       }
+
+			&:active::placeholder,
+			&:focus-visible::placeholder {
+				color: rgba($color-accent, 0.5);
+			}
     }
   }
 
