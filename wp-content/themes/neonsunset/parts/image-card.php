@@ -27,7 +27,8 @@ if ( has_post_thumbnail() ) :
 	$caption = wp_get_attachment_caption( get_post_thumbnail_id() );
 	if ( ! empty( $caption ) ) :
 		?>
-		<figcaption class="text-center"><?php echo wp_kses_post( $caption ); ?></figcaption><?php endif; ?>
+		<figcaption class="text-center"><?php echo wp_kses_post( $caption ); ?></figcaption>
+	<?php endif; ?>
 	</figure>
 <?php endif; ?>
 </header>
