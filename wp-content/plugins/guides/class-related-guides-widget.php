@@ -67,18 +67,20 @@ class Related_Guides_Widget extends WP_Widget {
 						echo wp_kses_post( '<article class="content-card content-card-' . esc_attr( $post->ID ) . '">' );
 						echo wp_kses_post( '<header>' );
 						if ( has_post_thumbnail() ) :
-							echo wp_kses_post( '<figure class="featured-image-container">' );
-							the_post_thumbnail(
+							echo wp_kses_post( '<a href="' . esc_attr( get_permalink( $post->ID ) ) . '" class="featured-image-container" title="' . esc_attr( get_the_title( $post->ID ) ) . '">' );
+							echo the_post_thumbnail(
 								$post->ID,
 								array(
 									'class' => 'image-center-fit',
 									'alt'   => esc_attr( get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ) ),
 								)
 							);
-							echo wp_kses_post( '</figure>' );
+							echo wp_kses_post( '</a>' );
 						endif;
+						echo wp_kses_post( '<div class="wrapper">' );
 						echo wp_kses_post( '<h3>' . esc_html( get_the_title() ) . '</h3>' );
 						echo wp_kses_post( '<a class="button button-foreground" href="' . esc_url( get_permalink() ) . '">Read now&nbsp;&#8250;</a>' );
+						echo wp_kses_post( '</div>' );
 						echo wp_kses_post( '</header>' );
 						echo wp_kses_post( '</article>' );
 					endwhile;
