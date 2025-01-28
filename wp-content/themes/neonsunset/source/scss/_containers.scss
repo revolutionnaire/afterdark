@@ -1,8 +1,8 @@
 // Define all styles related to containers here
 
 main {
-  padding: $space-vertical 0;
   margin-top: $navigation-height + 2 * $space-horizontal;
+	margin-bottom: $space-vertical;
 }
 
 iframe {
@@ -29,17 +29,17 @@ iframe {
 }
 
 .breadcrumbs-bar ~ main {
-  margin-top: 0;
+  margin-top: $space-vertical;
 }
 
 .search-bar ~ main {
-  margin-top: 0;
+  margin-top: $space-vertical;
 
   @include respond-above(lg) {
     margin-top: $navigation-height + 2 * $space-horizontal;
   }
 }
 
-.contributor-card ~ main {
-  margin-top: 0;
+.author > main {
+  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
 }

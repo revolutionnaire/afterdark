@@ -4,54 +4,47 @@
 	background-color: $color-foreground;
 	color: $color-background;
 
-	> main {
-  	padding-top: 0;
+	> main > article > .wrapper {
+    @include respond-above(sm) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+			gap: $space-vertical $space-horizontal;
+    }
 
-  	> article {
+		h1 {
+			color: $color-accent;
+		}
 
-    	> .wrapper {
-      	@include respond-above(sm) {
-        	display: flex;
-        	flex-direction: row;
-        	flex-wrap: wrap;
-					gap: $space-vertical $space-horizontal;
-      	}
+		.byline {
+			list-style-type: none;
 
-				h1 {
-					color: $color-accent;
+			> li {
+				font-size: $default-byline-size;
+			}
+		}
+
+    > #content {
+			@include respond-above(sm) {
+        flex-basis: calc(44% - $space-horizontal);
+			}
+
+			@include respond-above(lg) {
+				flex-basis: calc(66.667% - $space-horizontal);
+			}
+    }
+
+    > footer {
+			flex-basis: 100%;
+
+			.social-media-links {
+        display: flex;
+
+				> li {
+					border-color: $color-background;
 				}
-
-				.byline {
-					list-style-type: none;
-
-					> li {
-						font-size: $default-byline-size;
-					}
-				}
-
-      	> #content {
-					@include respond-above(sm) {
-        		flex-basis: calc(44% - $space-horizontal);
-					}
-
-					@include respond-above(lg) {
-						flex-basis: calc(66.667% - $space-horizontal);
-					}
-      	}
-
-      	> footer {
-					flex-basis: 100%;
-
-					.social-media-links {
-        		display: flex;
-
-						> li {
-							border-color: $color-background;
-						}
-					}
-      	}
-    	}
-  	}
+			}
+    }
 	}
 }
 

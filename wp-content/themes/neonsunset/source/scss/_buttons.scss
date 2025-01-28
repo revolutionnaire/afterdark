@@ -8,7 +8,7 @@ button,
 	border: 3px solid $color-action;
 	border-radius: $default-body-size;
 	display: inline-block;
-	transition: border 1s ease-in, color 0.5s ease-in;
+	transition: border 0.5s ease-in, color 0.5s ease-in;
 
 	&:hover {
 		color: rgba($color-action, 0.5);
@@ -22,7 +22,7 @@ button,
 
 		&:hover {
 			color: rgba($color-foreground, 0.5);
-		border-color: rgba($color-foreground, 0.5);
+			border-color: rgba($color-foreground, 0.5);
 		}
 	}
 }

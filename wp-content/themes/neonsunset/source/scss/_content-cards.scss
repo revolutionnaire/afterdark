@@ -4,7 +4,6 @@
 
 // Setup content cards when they're wrapped in a wrapper
 .content-card-wrapper {
-
   @include respond-above(sm) {
     display: flex;
     flex-direction: row;
@@ -69,7 +68,8 @@
 			margin-right: 0;
 			margin-left: 0;
 
-			> h2 {
+			> h2,
+			>	h3 {
       		margin-top: $space-vertical * 0.5;
       		margin-bottom: $space-vertical * 0.5;
     	}

@@ -20,6 +20,7 @@
 				font-size: 80px;
 				font-weight: 400;
 				word-break: break-all;
+				margin-top: $space-vertical;
 
 				@include respond-above(sm) {
 					font-size: 160px;

@@ -10,7 +10,7 @@
   top: 0;
   right: 0;
   z-index: 3;
-  transition: $navigation-animation;
+  transition: height 0.5s ease-in, top 0.25s ease-out, position 0.25s ease-out, opacity 0.2s ease-in;
 
 	> .background {
 		width: 100vw;
@@ -23,6 +23,7 @@
   > .wrapper {
 		display: flex;
     position: relative;
+    transition: height 0.5s ease-in, top 0.25s ease-out, position 0.25s ease-out, opacity 0.2s ease-in;
 
     @include respond-above(sm) {
       display: flex;
@@ -72,6 +73,7 @@
   	right: 0;
   	bottom: 0;
   	left: 0;
+		transition: opacity 0.25s ease-in;
 
 		@include respond-above(sm) {
 			display: flex;
@@ -87,10 +89,12 @@
   	}
 
 		> .menu-item {
+			margin-bottom: $space-vertical;
 			opacity: 0;
-    	transition: $navigation-menu-item-animation;
+    	transition: opacity 0.25s ease-in;
 
 			@include respond-above(sm) {
+				margin-bottom: auto;
 				opacity: 1;
 			}
 		}
@@ -115,11 +119,9 @@
   // Navigation bar toggling and element visibility on different screens
   &.show {
     height: 100vh;
-    transition: $navigation-animation;
 
     > .wrapper {
       height: 100vh;
-      transition: $navigation-animation;
 
       > .menu-main-menu-container {
 
@@ -150,7 +152,7 @@
 
 	path {
 		fill: $color-foreground;
-		transition: $navigation-logo-animation;
+		transition: fill 0.25s ease-in;
 	}
 
 	> h1 > a,
@@ -228,7 +230,7 @@
 
 // Move the navigation below the WordPress navigation bar when user is logged in
 .logged-in > #navigation {
-  top: $wordpress-adminbar-height-mobile;
+  top: 46px;
 
   // Move to the top of the viewport because the WordPress admin bar is scrolled out
   &.scrolling {
@@ -236,10 +238,6 @@
   }
 
   @include respond-above(md) {
-    top: $wordpress-adminbar-height-desktop;
-  }
-
-  @include respond-above(lg) {
-    top: $wordpress-adminbar-height-desktop;
+    top: 32px;
   }
 }
