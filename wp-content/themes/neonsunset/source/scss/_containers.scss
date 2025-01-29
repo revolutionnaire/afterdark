@@ -32,14 +32,14 @@ iframe {
   margin-top: $space-vertical;
 }
 
-.search-bar ~ main {
+.author > main {
+  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
+}
+
+#search-bar ~ main {
   margin-top: $space-vertical;
 
   @include respond-above(lg) {
     margin-top: $navigation-height + 2 * $space-horizontal;
   }
-}
-
-.author > main {
-  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
 }
