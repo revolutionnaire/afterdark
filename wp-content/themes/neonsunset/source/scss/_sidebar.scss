@@ -33,32 +33,32 @@
 		padding: $space-vertical $space-horizontal;
 		margin-bottom: $space-vertical;
 
-		> .content-card > header {
+		> .content-card:not(:last-child) {
+			margin-bottom: $space-vertical;
 
-    	@include respond-above(sm) {
-      	margin-right: 0;
-      	margin-left: 0;
-    	}
+			> header {
 
-    	> .featured-image-container {
-      	height: 200px;
+    		@include respond-above(sm) {
+      		margin-right: 0;
+      		margin-left: 0;
+    		}
 
-      	@include respond-above(sm) {
-        	height: 124px;
-      	}
+    		> .featured-image-container {
+      		height: 200px;
 
-      	@include respond-above(lg) {
-        	height: 200px;
-      	}
-    	}
+      		@include respond-above(sm) {
+        		height: 124px;
+      		}
 
-    	> h3 {
-      	font-size: $default-heading-size;
-      	font-weight: $default-black-weight;
-    	}
+      		@include respond-above(lg) {
+        		height: 200px;
+      		}
+    		}
 
-			.button {
-				margin-top: $space-vertical * 0.5;
+    		> h3 {
+      		font-size: $default-heading-size;
+      		font-weight: $default-black-weight;
+    		}
 			}
 		}
   }
