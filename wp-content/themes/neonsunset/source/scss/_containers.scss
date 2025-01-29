@@ -43,3 +43,7 @@ iframe {
     margin-top: $navigation-height + 2 * $space-horizontal;
   }
 }
+
+.search > #search-bar ~ main {
+  margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
+}
