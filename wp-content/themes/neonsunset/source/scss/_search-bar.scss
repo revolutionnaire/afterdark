@@ -25,7 +25,13 @@
         font-weight: $default-semi-bold-weight;
       }
 
+			&:active::-webkit-input-placeholder,
+			&:active::-moz-placeholder,
+			&:active::-ms-input-placeholder,
 			&:active::placeholder,
+			&:focus::-webkit-input-placeholder,
+			&:focus::-moz-placeholder,
+			&:focus::-ms-input-placeholder,
 			&:focus-visible::placeholder {
 				color: rgba($color-accent, 0.5);
 			}
