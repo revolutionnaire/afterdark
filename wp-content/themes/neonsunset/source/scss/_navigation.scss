@@ -1,4 +1,4 @@
-// Define all .menu-main-menu-containerigation bar related styles here
+// Define all navigation bar related styles here
 
 // Setup basic structure of navigation and toggling of menu on mobile phones
 #navigation {
@@ -26,8 +26,8 @@
     transition: height 0.5s ease-in, top 0.25s ease-out, position 0.25s ease-out, opacity 0.2s ease-in;
 
     @include respond-above(sm) {
-      display: flex;
       flex-direction: row;
+			justify-content: space-between;
 			gap: $space-horizontal;
 		}
 	}
@@ -35,6 +35,10 @@
 	header {
     width: 24px;
     padding-right: $space-horizontal * 0.5;
+
+		@include respond-above(sm) {
+			flex-basis: 2%;
+		}
 
     h1,
     h2 {
@@ -64,6 +68,7 @@
 
 		@include respond-above(lg) {
 			display: block;
+			flex-basis: 71%;
 		}
 	}
 
@@ -77,6 +82,8 @@
 
 		@include respond-above(sm) {
 			display: flex;
+			justify-content: space-between;
+			flex-basis: 25%;
 			gap: 0 $space-horizontal * 0.5;
 			position: static;
 		}
@@ -109,6 +116,7 @@
 
 		@include respond-above(sm) {
 			display: none;
+			flex-basis: 2%;
 		}
 
 		path {
@@ -165,8 +173,6 @@
 }
 
 #navigation #search {
-  flex-grow: 3;
-  flex-shrink: 3;
 
   > .input-text[type="search"] {
     width: 100%;
@@ -197,10 +203,7 @@
 #navigation .menu-main-menu-container {
 
   @include respond-above(sm) {
-    margin-top: 0;
 		margin-left: auto;
-    flex-grow: 0;
-    flex-shrink: 0;
     position: static;
     opacity: 1;
   }
