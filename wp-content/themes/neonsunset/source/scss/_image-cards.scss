@@ -23,6 +23,6 @@
   }
 
 	&:has(> .featured-image-container > figcaption) {
-		margin-bottom: $space-vertical * 2 + $default-byline-size; // Adjust bottom margin for the extra space that the caption adds
+		margin-bottom: $space-vertical + $default-byline-size; // Adjust bottom margin for the extra space that the caption adds
 	}
 }
