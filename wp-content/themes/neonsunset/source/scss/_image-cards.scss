@@ -1,7 +1,6 @@
 // Define styles for title cards here
 
 .image-card {
-	margin-bottom: $space-vertical * 2 + $default-byline-size; // Adjust bottom margin for the extra space that the caption adds
 
   > .featured-image-container {
     width: 100%;
@@ -22,4 +21,8 @@
       left: 0;
     }
   }
+
+	&:has(> .featured-image-container > figcaption) {
+		margin-bottom: $space-vertical * 2 + $default-byline-size; // Adjust bottom margin for the extra space that the caption adds
+	}
 }
