@@ -32,7 +32,8 @@ iframe {
   margin-top: $space-vertical;
 }
 
-.author > main {
+.author > main,
+.page > main {
   margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
 }
 
