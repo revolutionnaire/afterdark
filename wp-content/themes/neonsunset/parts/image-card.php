@@ -19,7 +19,7 @@ if ( has_post_thumbnail() ) :
 	the_post_thumbnail(
 		$post->ID,
 		array(
-			'class' => 'image-center-fit',
+			'class' => 'image-center-cover',
 			'alt'   => $thumbnail_alt,
 		)
 	);

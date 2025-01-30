@@ -71,7 +71,7 @@ class Related_Guides_Widget extends WP_Widget {
 							echo the_post_thumbnail(
 								$post->ID,
 								array(
-									'class' => 'image-center-fit',
+									'class' => 'image-center-cover',
 									'alt'   => esc_attr( get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ) ),
 								)
 							);

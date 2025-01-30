@@ -22,7 +22,7 @@ $featured_article = array_key_exists( 'featured-article', $args ) ? $args['featu
 		the_post_thumbnail(
 			$post->ID,
 			array(
-				'class' => 'image-center-fit',
+				'class' => 'image-center-cover',
 				'alt'   => get_post_meta( get_post_meta( $post->ID, '_thumbnail_id', true ), '_wp_attachment_image_alt', true ),
 			)
 		);
