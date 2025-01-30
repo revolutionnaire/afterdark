@@ -10,7 +10,9 @@
 		}
 
 		header {
-			flex-basis: 100%;
+			@include respond-above(sm) {
+				flex-basis: 100%;
+			}
 
 			h3 {
 				background:url('assets/images/sunrise.jpg') center/cover no-repeat ;
