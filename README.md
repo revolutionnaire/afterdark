@@ -1,4 +1,4 @@
-Around After Dark
+After Dark
 ==========
 
 A WordPress site for travel and food after the sun sets.
@@ -23,7 +23,7 @@ mysql -u root
 4. Create the database for WordPress.
 
 ```
-CREATE DATABASE aroundafterdark;
+CREATE DATABASE afterdark;
 ```
 
 5. Check if your database was successfully created.
@@ -32,7 +32,7 @@ CREATE DATABASE aroundafterdark;
 SHOW DATABASES;
 ```
 
-6. Go to the theme folder `wp-content/themes/after-dark` and install the theme dependencies. You can view the list of dependencies in `package.json` located in the theme's folder.
+6. Go to the theme folder `wp-content/themes/neonsunset` and install the theme dependencies. You can view the list of dependencies in `package.json` located in the theme's folder.
 
 ```
 npm install
