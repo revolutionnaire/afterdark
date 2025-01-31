@@ -33,7 +33,7 @@ iframe {
 }
 
 .author > main,
-body:not(.page-home) > main {
+.page-template-default:not(.page-home) > main {
   margin-top: $navigation-height + 2 * $space-horizontal + $space-vertical;
 }
 
