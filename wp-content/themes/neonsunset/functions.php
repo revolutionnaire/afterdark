@@ -19,6 +19,7 @@ require_once get_template_directory() . '/includes/archive.php';
 require_once get_template_directory() . '/includes/single.php';
 require_once get_template_directory() . '/includes/sidebar.php';
 require_once get_template_directory() . '/includes/footer.php';
+require_once get_template_directory() . '/includes/author.php';
 
 define( 'WP_DEBUG', true  );
 define( 'WP_DEBUG_LOG', true  );

@@ -11,9 +11,10 @@ get_header();
 ?>
 	<main class="wrapper content-card-wrapper">
 	<?php if ( have_posts() ) : the_post(); ?>
-		<div class="contributor-card text-center">
+		<div class="author-card text-center">
 		<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
 			<h1><?php  the_author_meta( 'display_name' ); ?></h1>
+			<h4><small><?php esc_html( ns_the_author_role() ); ?></small></h4>
 		<?php if ( get_the_author_meta( 'description' ) !== '' ) : ?>
 			<p><?php esc_html( the_author_meta( 'description' ) ); ?></p>
 		<?php endif; ?>

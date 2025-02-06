@@ -1,4 +1,4 @@
-// Define all styles related to the content card and contributor card component
+// Define all styles related to the content card and author card component
 
 // Use Flexbox on non-featured contents
 
@@ -12,7 +12,7 @@
 		gap: $space-vertical $space-horizontal;
   }
 
-	> .contributor-card {
+	> .author-card {
 		margin-bottom: $space-vertical;
 
 		@include respond-above(sm) {
@@ -25,7 +25,7 @@
 		}
 	}
 
-	> .contributor-card ~ .content-card:nth-child(2) {
+	> .author-card ~ .content-card:nth-child(2) {
 
 		@include respond-above(sm) {
 			flex-basis: 100%;
@@ -108,7 +108,7 @@
   }
 }
 
-.contributor-card {
+.author-card {
 	padding: $space-vertical $space-horizontal;
 	border: 3px solid $color-foreground;
 	border-radius: $border-radius;
@@ -121,5 +121,10 @@
   h1 {
     font-family: $default-title-font;
     font-weight: 400;
+		margin-bottom: 0;
   }
+
+	h4 {
+		font-weight: 400;
+	}
 }
